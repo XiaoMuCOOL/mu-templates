@@ -25,6 +25,28 @@
 
 **官网** ： www.bingblue.com
 
+## Usage
+
+```console
+    # Npm install(安装依赖)
+    $ cd project && npm i
+
+    # Run the project(运行项目)
+    $ npm start
+
+    # Package items(打包项目-dist目录下-未压缩)
+    $ npm run dev
+
+    # Package items(打包项目-dist目录下-压缩版)
+    $ npm run build
+
+    # Lint javaScript(js检查)
+    $ npm run lint
+
+    # Lint css(css检查)
+    $ npm run lintcss
+```
+
 ## Mu-JQuery 涉及技术
 
 - [Webpack][1]   -   模块引入、打包([中文文档][5])

@@ -27,13 +27,6 @@ class TOOLS {
     }
     /* eslint-enable */
   }
-  // 测试
-  test (i) {
-    console.log(Config.api.user + i)
-    setTimeout(function () {
-      alert(1)
-    }, 1000)
-  }
 }
 const Tools = new TOOLS()
 module.exports = Tools
