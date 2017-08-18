@@ -1,0 +1,111 @@
+/* 自定义变量 */
+$main-color:#e1a752;
+$over-height-bg-color:#eee;
+$over-height-bg-color2:#b51623;
+
+/* 全局类和方法 */
+@mixin webkit-ani($name:an1,$duration:1s,$delay:0s,$count:1,$mode:none){
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-name: $name;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+  -webkit-animation-duration: $duration;/*动画持续时间*/
+  -webkit-animation-delay: $delay;/*动画延迟时间*/
+  -webkit-animation-iteration-count: $count;/*定义循环资料，infinite为无限次*/
+  -webkit-animation-fill-mode: $mode;/* forwards 固定在最后一帧| backwards 固定在第一帧*/
+}
+@mixin btn-abs($width:60%,$height:12%,$top:0,$left:0){
+  display: inline-block;
+  width: $width;
+  height: $height;
+  position: absolute;
+  top: $top;
+  left: $left;
+  z-index: 99;
+}
+@mixin pos($width:auto,$height:auto,$top:0,$left:0){
+  position: absolute;
+  top:$top;
+  left:$left;
+  width: $width;
+  height: $height;
+  z-index: 89;
+}
+%mask{
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.8);
+  display: none;
+}
+%btn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 60%;
+  height: 12%;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #fff;
+}
+.wrap{
+  min-width: 320px;
+  max-width: 640px;
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  position: relative;
+  background: $over-height-bg-color;
+}
+.wrap-color{
+  background: $over-height-bg-color2;
+}
+.main{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* page 1 */
+.p1{
+  display: block;
+}
+.p1-an1{
+  @include pos(30%,auto,10%,35%);
+  @include webkit-ani(ani-down,0.8s,0s,1);
+}
+.p1-an2{
+  @include pos(100%,auto,41%,0%);
+  @include webkit-ani(ani-up,1s,0s,1);
+}
+/* 动画定义 */
+@-webkit-keyframes bg{
+  0% {
+    -webkit-transform : scale(1.3);
+    transform: scale(1.3);
+  }
+  100% {
+    -webkit-transform : scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes p1-an1{
+  0% {
+    -webkit-transform : rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform : rotate(20deg);
+    transform: rotate(20deg);
+  }
+}
