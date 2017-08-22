@@ -10,7 +10,7 @@
   <h1>Mu-Simple</h1>
   <br>
   <p>
-    A simple template(最简单的模板，无构建工具)
+    A simple template with lint js & css(最简单的模板，无构建工具，有js和css语法检测)
   <p>
   <br>
   <br>
@@ -26,6 +26,14 @@
 
 **官网** ： www.bingblue.com
 
+## Usage
+```shell
+//安装依赖
+$ cd projectName && npm install
+
+//运行
+$ npm start
+```
 
 ## License
 
