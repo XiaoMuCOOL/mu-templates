@@ -11,7 +11,7 @@
     "prebuild": "npm run prestart",
     "build": "cross-env NODE_ENV=prod webpack",
     "lint": "standard --fix & standard --verbose | snazzy",
-    "lintcss": "stylelint --fix src/css/**.css !src/css/normalize.css"
+    "lintcss": "stylelint --fix src/css/**.css"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -54,13 +54,22 @@
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
+    "ignoreFiles": [
+      "src/css/normalize.css"
+    ],
+    "fix": true,
     "rules": {
       "at-rule-no-unknown": [
         true,
         {
           "ignoreAtRules": [
             "extends",
-            "ignores"
+            "ignores",
+            "for",
+            "if",
+            "else",
+            "mixin",
+            "content"
           ]
         }
       ],
