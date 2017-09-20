@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run lint && npm run lintcss",
     "lint": "standard --fix && standard",
-    "lintcss": "stylelint --fix css/**.css !css/normalize.css"
+    "lintcss": "stylelint --fix css/**.css"
   },
   "devDependencies": {
     "standard": "^10.0.3",
@@ -24,13 +24,23 @@
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
+    "ignoreFiles": [
+      "css/normalize.css",
+      "css/**/**.min.css"
+    ],
+    "fix": true,
     "rules": {
       "at-rule-no-unknown": [
         true,
         {
           "ignoreAtRules": [
             "extends",
-            "ignores"
+            "ignores",
+            "for",
+            "if",
+            "else",
+            "mixin",
+            "content"
           ]
         }
       ],
