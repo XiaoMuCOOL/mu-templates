@@ -1,11 +1,9 @@
 @charset "UTF-8";
 
-@import 'normalize.css';
-
 /* 定义变量 */
 :root {
   --font: 1.2rem;
-  --red: #d33;
+  --red: #fff;
 }
 
 /* Autoprefixer */
@@ -23,7 +21,7 @@
   }
 
   @nest .body & {
-    color: black;
+    color: var(--red);
   }
 }
 
@@ -41,20 +39,6 @@ a {
   font-weight: bold;
 }
 
-/* 故意写的错误 */
-.col {
-  color: #ddd;
-  background-color: #fff;
-}
-
-.index p {
-  font-size: 2rem;
+body {
   background: yellow;
-  background: url('../img/big.jpg');
-}
-
-.about p {
-  font-size: 3rem;
-  background: blue;
-  background: url('../img/small.png');
 }
