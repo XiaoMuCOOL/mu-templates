@@ -15,7 +15,7 @@
 	</a>
   <h1>Mu-Gulp</h1>
   <p>
-    Mu-Gulp template is Frontend automation based on JAVA directory structure (基于JAVA目录结构的前端自动化)
+    Frontend automation based on JAVA directory structure with gulp(基于gulp和JAVA目录结构的前端自动化)
   <p>
   <br>
   <br>
