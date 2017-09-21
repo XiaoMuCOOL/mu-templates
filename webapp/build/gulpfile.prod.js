@@ -156,7 +156,7 @@ gulp.task('minify', () => {
  * 默认所有都执行
  */
 gulp.task('default', ['clean'], () =>
-  gulp.start(['lint', 'minifyAll'])
+  gulp.start(['lint', 'minify'])
 )
 
 /*
