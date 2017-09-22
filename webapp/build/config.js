@@ -8,7 +8,7 @@ module.exports = {
     dest: '../img'
   },
   js: {
-    src: ['../js/**/*.js', '!../js/**/*.min.*','!../js/+(libs|vendor)/*.js'],
+    src: ['../js/**/*.js', '!../js/**/*.min.*','!../js/+(libs|vendor)/**/*.js'],
     dest: '../js'
   },
   clean: {

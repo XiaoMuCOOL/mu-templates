@@ -47,10 +47,9 @@
       "Tools"
     ],
     "ignore": [
-      "node_modules/**.js",
-      "**.min.js",
-      "js/libs/*.js",
-      "js/vendor/*.js"
+      "node_modules/**/*.js",
+      "js/libs/**/*.js",
+      "js/vendor/**/*.js"
     ]
   },
   "stylelint": {
