@@ -12,7 +12,7 @@ module.exports = {
     dest: '../js'
   },
   clean: {
-    src: '../+(js|css)/**/*.min.**'
+    src: ['../+(js|css)/**/*.min.**', '!../js/+(libs|vendor)/**/*.js']
   },
   watch: {
     src: '../+(js|css)/**/*.!(min)**'
