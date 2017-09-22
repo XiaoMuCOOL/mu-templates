@@ -20,11 +20,13 @@ let cssReporter = {}
 let jsReporter = {}
 if(process.env.NODE_ENV === 'prod'){
   cssReporter = {
-    throwError: true
+    // 如果其他文件报错，已通过检查CSS文件会变空BUG
+    // throwError: true
   }
   jsReporter = {
-    breakOnError: true,
-    breakOnWarning: true,
+    // 同CSS，原因是因为我在原文件上做了fix
+    // breakOnError: true,
+    // breakOnWarning: true,
     showFilePath: true
   }
 }
