@@ -13,9 +13,9 @@
   <a href="https://jq.qq.com/?_wv=1027&k=5tyQDAd">
 		<img src="https://img.shields.io/badge/QQ%20Group-215259343-blue.svg">
 	</a>
-  <h1>Mu-Templates</h1>
+  <h1>Mu-Koa2</h1>
   <p>
-    mu-templates是各种框架的模板集合,包括但不限于前端自动化模板,包含合并、编译、压缩、发布,前后端框架脚手架等。
+    Mu-Koa2(基于Koa2框架的NodeJS模板)
   <p>
   <br>
   <br>
@@ -27,29 +27,42 @@
 
 **QQ号** ： 895355044
 
-**QQ群** ： [215259343][4]
+**QQ群** ：[215259343][11]
 
 **官网** ： www.bingblue.com
 
-## 版本列表
+## Usage
 
-- [mu-simple][1]  -  A simple template with ESlint & Stylelint(最简单的模板，无构建工具，有js和css语法检测)
-- [mu-jquery][2]  -  Multi-page template based on JQuery with webpack(基于webpack和JQuery的前端多页面模板)
-- [mu-gulp][5] - Frontend automation based on JAVA directory structure with gulp(基于gulp和JAVA目录结构的前端自动化)
-- [mu-grunt][3] - Template based on Grunt(基于Grunt构建的前端模板)
-- [mu-vue][6]     -  Vue单页面版 (建设中...)
+```console
+    # Npm install(安装依赖)
+    $ cd project && npm i
+
+    # Run the project(运行项目)
+    $ npm start
+```
+
+## Mu-Koa2 涉及技术
+
+- [Koa2][1]   -   NodeJS框架
+
 
 ## License
 
-**Mu-Templates** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
+**Mu-Koa2** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
 
 Copyright © 2017 · 滨清科技 , Inc. 
 
 All Rights Reserved · Powered by : **小牧COOL**
 
-[1]:https://github.com/xiaomucool/mu-templates/tree/mu-simple
-[2]:https://github.com/xiaomucool/mu-templates/tree/mu-jquery
-[3]:https://github.com/xiaomucool/mu-templates/tree/mu-grunt
-[4]:https://jq.qq.com/?_wv=1027&k=5tyQDAd
-[5]:https://github.com/xiaomucool/mu-templates/tree/mu-gulp
-[6]:https://github.com/xiaomucool/mu-templates/tree/mu-vue
+
+[1]:https://webpack.js.org/
+[2]:http://jquery.com/
+[3]:http://eslint.cn/
+[4]:https://github.com/standard/standard/blob/master/docs/README-zhcn.md
+[5]:https://doc.webpack-china.org/
+[6]:http://postcss.org/
+[7]:https://github.com/stylelint/stylelint
+[8]:https://github.com/stylelint/stylelint-config-standard
+[9]:http://cssnext.io/
+[10]:https://github.com/postcss/autoprefixer
+[11]:https://jq.qq.com/?_wv=1027&k=5tyQDAd

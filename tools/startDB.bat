@@ -1,0 +1,1 @@
+d: && cd MongoDB\Server\3.4\bin && mongod -f D:\MongoDB\Server\3.4\etc\mongodb.conf
