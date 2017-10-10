@@ -18,13 +18,13 @@ onerror(app)
 
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
 app.use(logger())
-app.use(koaStatic(__dirname + '/public'))
+app.use(koaStatic(path.join(__dirname, '/public')))
 
-app.use(views(__dirname + '/views', {
+app.use(views(path.join(__dirname, '/views'), {
   extension: 'pug'
 }))
 
@@ -37,12 +37,12 @@ app.use(async (ctx, next) => {
 })
 
 // 加载路由
-glob.sync("routes/**/*.js").sort((x, y) => {
-  if (x.indexOf("index") > -1) return -1
+glob.sync('routes/**/*.js', {cwd: __dirname}).sort((x, y) => {
+  if (x.indexOf('index') > -1) return -1
   return 1
 }).forEach(file => {
-  const route = require("./" + file)
-  let urlPath = file.replace(/\.[^.]*$/, "").replace("routes", "").replace("/index", "")
+  const route = require('./' + file)
+  let urlPath = file.replace(/\.[^.]*$/, '').replace('routes', '').replace('/index', '')
   router.use(urlPath, route.routes())
 })
 app.use(router.routes(), router.allowedMethods())
