@@ -11,12 +11,12 @@ class Util {
     if(ctx) {
       ctx.body = result
     }
-    this.error(result)
+    this.info(result)
     return result
   }
-  info(msg) {
+  info(msg, space) {
     console.log()
-    console.info('[Bingblue]:'.yellow, msg.yellow)
+    console.info('[Bingblue '+ space +']:'.yellow, msg.yellow)
     console.log()
   }
   success(msg) {
