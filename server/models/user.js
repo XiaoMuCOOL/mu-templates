@@ -1,14 +1,11 @@
 'use strict'
-var crypto = require('crypto')
-var mongoose = require('./db')
-var counters = require('./counters')
+const mongoose = require('../config/db')
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   userId: {// 用户ID 类似QQ号
     type: Number,
     unique: true
   },
-  // var emailRegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
   // 必填字段
   userName: {// 用户名
     type: 'String',
@@ -40,6 +37,10 @@ var userSchema = new mongoose.Schema({
   },
 
   // 选填
+  userAvatar: {
+    type: 'String',
+    default: '/upload/default_avatar.png'
+  },
   invitationCode: {
     type: 'String'
   },
@@ -75,124 +76,4 @@ var userSchema = new mongoose.Schema({
   collection: 'users'
 })
 
-var UserModel = mongoose.model('Users', userSchema)
-
-function User (user) {
-  this.userName = user.userName
-  this.userPwd = user.userPwd
-  this.nickName = user.nickName
-  this.userPhone = user.userPhone
-  this.userSex = user.userSex
-  this.userEmail = user.userEmail
-  this.invitationCode = user.invitationCode
-  this.invitationCodeNum = user.invitationCodeNum
-};
-
-User.prototype.save = function (callback) {
-  var passwordMD5 = crypto.createHash('md5').update(this.userPwd + '').digest('hex')
-  var user = {
-    userName: this.userName,
-    userPwd: passwordMD5,
-    nickName: this.nickName,
-    userPhone: this.userPhone,
-    userSex: this.userSex,
-    userEmail: this.userEmail
-  }
-  counters.getNextSequence('userid', function (err, userId) {
-    if (err) {
-      return callback(err)
-    } else {
-      user.userId = userId
-      var userEntity = new UserModel(user)
-      userEntity.save(function (err, user) {
-        callback(err, user)
-      })
-    }
-  })
-
-  // 如何让mongoose同步呢？
-  // var user = {
-  //   userId : counters.getNextSequence("userid"),
-  //   userName: this.name,
-  //   userPwd: password_MD5,
-  //   email: this.email,
-  //   nickName : "xiaomu"
-  // };
-
-  // var userEntity = new UserModel(user);
-
-  // userEntity.save(function (err, user) {
-  //   if (err) {
-  //     return callback(err);
-  //   }
-  //   callback(null, user);
-  // });
-}
-
-User.getByUserName = function (userName, callback) {
-  UserModel.findOne({userName: userName}, function (err, user) {
-    // 为啥要if?
-    // if (err) {
-    //  return callback(err);
-    // }
-    // callback(null, user);
-    callback(err, user)
-  })
-}
-
-User.updateByUserName = function (updateUser, callback) {
-  UserModel.findOneAndUpdate({userName: updateUser.userName}, {$set: updateUser}, {new: true}, function (err, user) {
-    callback(err, user)
-    // UserModel.findById(user._id, function (err, user) {
-    //   if (err) {
-    //     return callback(err);
-    //   }
-    //   callback(null, user);
-    // });
-    // findOneAndUpdate 方法返回的是修改前的数据，WTF！
-    // 已解决：设置options{new:true}
-  })
-}
-User.updateByUserId = function (updateUser, callback) {
-  UserModel.findOneAndUpdate({userId: updateUser.userId}, {$push: {userFriends: updateUser.userFriends}}, {new: true}, function (err, user) {
-    callback(err, user)
-  })
-}
-User.updateListByUserId = function (updateUserList, callback) {
-  console.log('此方法未完善!')
-  // updateUserList.forEach(function(index,updateUser){
-  //  UserModel.findOneAndUpdate({userId: updateUser.userId},{$push:{userFriends:updateUser.userFriends}},{new:true},function (err, user) {
-  //    callback(err, user);
-  //  });
-  // });
-}
-User.createInvitationCodeByUserId = function (updateUser, callback) {
-  UserModel.findOneAndUpdate({userId: updateUser.userId}, {$set: updateUser}, {new: true}, function (err, user) {
-    callback(err, user)
-  })
-}
-User.getByInvitationCode = function (invitationCode, callback) {
-  UserModel.findOne({invitationCode: invitationCode}, function (err, user) {
-    callback(err, user)
-  })
-}
-
-User.getUserList = function (callback) {
-  UserModel.find(function (err, userList) {
-    callback(err, userList)
-  })
-}
-
-User.getUserListByUserId = function (userIdList, callback) {
-  UserModel.find({userId: {$in: userIdList}}, function (err, userList) {
-    callback(err, userList)
-  })
-}
-
-User.getLikeNickName = function (nickName, callback) {
-  let reg = new RegExp(nickName + '.*', 'i')
-  UserModel.find({nickName: {$regex: reg}}, function (err, user) {
-    callback(err, user)
-  })
-}
-module.exports = User
+module.exports = mongoose.model('Users', userSchema)

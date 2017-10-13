@@ -52,4 +52,20 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 })
 
+// 测试 链接数据库
+var mongoose = require('mongoose')
+mongoose.connect('mongodb://127.0.0.1:27038/test', { useMongoClient: true })
+mongoose.Promise = global.Promise
+
+var Cat = mongoose.model('Cat', { name: String })
+
+var kitty = new Cat({ name: 'Zildjian' })
+kitty.save(function (err) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('meow')
+  }
+})
+
 module.exports = app

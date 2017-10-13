@@ -10,6 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "colors": "^1.1.2",
     "debug": "^3.1.0",
     "glob": "^7.1.2",
     "koa": "^2.3.0",
@@ -28,8 +29,7 @@
     "standard": "^10.0.3"
   },
   "standard": {
-    "globals": [
-    ],
+    "globals": [],
     "ignore": [
       "node_modules/**.js",
       "**/public/**/*.js"

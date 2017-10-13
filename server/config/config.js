@@ -7,6 +7,7 @@ const config = {
     port: 27038,
     url: 'mongodb://127.0.0.1:27038/group'
   },
+  sqe: [{_id: 'userId'}, {_id: 'groupId'}], //{_id: 'userId'}, {_id: 'groupId'}
   jwt: {
     secret: 'me' // 默认
   },
