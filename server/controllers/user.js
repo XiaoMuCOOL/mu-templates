@@ -5,10 +5,10 @@ const UserModel = require('./schema/user')
 const Util = require('./util')
 
 class User {
-  constructor() {
+  constructor () {
     this.v = '0.01'
   }
-  async save(user,ctx) {
+  async save (user, ctx) {
     try {
       let passwordMD5 = crypto.createHash('md5').update(this.user.userPwd + '').digest('hex')
       this.user.userPwd = passwordMD5
@@ -19,7 +19,7 @@ class User {
       return Util.getMsg(err.errmsg, err.code)
     }
   }
-  async getByUserName(userName, ctx) {
+  async getByUserName (userName, ctx) {
     try {
       const user = await UserModel.findOne({userName: userName})
       return Util.getMsg(user)
@@ -27,7 +27,7 @@ class User {
       return Util.getMsg(err.errmsg, err.code)
     }
   }
-  async updateByUserName(updateUser, ctx) {
+  async updateByUserName (updateUser, ctx) {
     try {
       const user = await UserModel.findOneAndUpdate({userName: updateUser.userName}, {$set: updateUser}, {new: true})
       return Util.getMsg(user)
@@ -35,7 +35,7 @@ class User {
       return Util.getMsg(err.errmsg, err.code)
     }
   }
-  async updateFriendsByUserId(updateUser, ctx){
+  async updateFriendsByUserId (updateUser, ctx) {
     try {
       const user = await UserModel.findOneAndUpdate({userId: updateUser.userId}, {$push: {userFriends: updateUser.userFriends}}, {new: true})
       return Util.getMsg(user)

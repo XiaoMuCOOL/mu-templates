@@ -6,7 +6,7 @@ var countersSchema = new mongoose.Schema({
   seq: { // 从100000增长
     type: Number,
     default: 100000
-  },
+  }
 }, {
   collection: 'counters'
 })

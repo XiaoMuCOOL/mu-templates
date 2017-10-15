@@ -1,40 +1,38 @@
 'use strict'
-const colors = require('colors')
-const CounterModel = require('../models/counter')
+require('colors')
 class Util {
-  getMsg(body = {}, code = 200, msg = '成功' , ctx) {
+  getMsg (body = {}, code = 200, msg = 'success', ctx) {
     let result = {
-      code : code,
-      msg : msg,
-      body : body
+      code: code,
+      msg: msg,
+      body: body
     }
-    if(ctx) {
+    if (ctx) {
       ctx.body = result
     }
-    this.info(result)
     return result
   }
-  info(msg, space) {
+  prefix (space, cb) {
+    space = space ? ' ' + space : ''
+    let prefix = '[Bingblue' + space + ']:'
     console.log()
-    console.info('[Bingblue '+ space +']:'.yellow, msg.yellow)
-    console.log()
-  }
-  success(msg) {
-    console.log()
-    console.info('[Bingblue]:'.green, msg.green)
+    cb(prefix)
     console.log()
   }
-  error(msg) {
-    console.log()
-    console.info('[Bingblue]:'.red, msg.red)
-    console.log()
+  info (msg, space) {
+    this.prefix(space, (prefix) => {
+      console.info(prefix.yellow, msg)
+    })
   }
-  tryAOP(cb) {
-    try {
-      return cb()
-    } catch (err) {
-      return this.getMsg(err.errmsg, err.code)
-    }
+  success (msg, space) {
+    this.prefix(space, (prefix) => {
+      console.info(prefix.green, msg)
+    })
+  }
+  error (msg, space) {
+    this.prefix(space, (prefix) => {
+      console.info(prefix.red, msg)
+    })
   }
 }
 
