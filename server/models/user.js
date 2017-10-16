@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
   },
   nickName: {// 昵称
     type: 'String',
+    default: '萌新',
     match: [/^[0-9a-zA-Z\u4e00-\u9fa5]{1,20}$/, '昵称只能输入数字、字符a-z、中文,最长20个字符!']
   },
   userPhone: {
@@ -27,12 +28,11 @@ const userSchema = new mongoose.Schema({
   },
   userSex: {
     type: 'String',
-    required: true,
+    default: '人妖',
     enum: ['男', '女', '人妖']
   },
   userEmail: {
     type: 'String',
-    required: '邮箱不能为空!',
     match: [/[_a-zA-Z\d\-./]+@[_a-zA-Z\d-]+(\.[_a-zA-Z\d-]+)+/, '邮箱格式不正确']
   },
 

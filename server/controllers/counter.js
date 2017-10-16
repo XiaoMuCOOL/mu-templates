@@ -18,8 +18,8 @@ class Counter {
   }
   async getSeqById (id = 'userId') {
     try {
-      const seq = await CounterModel.findOneAndUpdate({_id: id}, { $inc: { seq: 1 } }, {'new': true, 'upsert': true})
-      return Util.getMsg(seq.seq)
+      const result = await CounterModel.findOneAndUpdate({_id: id}, { $inc: { seq: 1 } }, {'new': true, 'upsert': true})
+      return result.seq
     } catch (err) {
       return Util.getMsg(err.errmsg, err.code)
     }

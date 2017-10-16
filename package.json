@@ -7,7 +7,7 @@
     "dev": "./node_modules/.bin/nodemon server/bin/www",
     "prd": "pm2 start server/bin/www",
     "lint": "standard --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava -v test/user.js"
   },
   "dependencies": {
     "colors": "^1.1.2",
@@ -25,6 +25,7 @@
     "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
+    "ava": "^0.22.0",
     "nodemon": "^1.12.1",
     "standard": "^10.0.3"
   },
