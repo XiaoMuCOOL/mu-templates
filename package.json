@@ -7,7 +7,7 @@
     "dev": "./node_modules/.bin/nodemon server/bin/www",
     "prd": "pm2 start server/bin/www",
     "lint": "standard --fix",
-    "test": "ava -v test/user.js"
+    "test": "ava -v test/*.js"
   },
   "dependencies": {
     "colors": "^1.1.2",
