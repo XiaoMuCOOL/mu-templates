@@ -1,16 +1,18 @@
 'use strict'
 require('colors')
+const crypto = require('crypto')
+
 class Util {
-  getMsg (body = {}, code = 200, msg = 'success', ctx) {
+  getMsg (body = {}, code = 200, msg = 'success') {
     let result = {
       code: code,
       msg: msg,
       body: body
     }
-    if (ctx) {
-      ctx.body = result
-    }
     return result
+  }
+  MD5 (text) {
+    return crypto.createHash('md5').update(text + '').digest('hex')
   }
   prefix (space, cb) {
     space = space ? ' ' + space : ''

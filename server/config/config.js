@@ -14,6 +14,10 @@ const config = {
   mongodbSecret: { // mongodb用户和密码
     user: '',
     pass: ''
+  },
+  github: {
+    clientId: 'ef17fd53612fb8bea361',
+    clientSecret: '5dc4ee2d35feac53a4e0d03e04179b24db1704ec'   
   }
 }
 
