@@ -9,8 +9,10 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const koaStatic = require('koa-static')
 const Router = require('koa-router')
+const Config = require('./config/config')
 // 鉴权
 const session = require('koa-session')
+const redisStore = require('koa-redis');
 const passport = require('koa-passport')
 
 const app = new Koa()
@@ -32,8 +34,10 @@ app.use(views(path.join(__dirname, '/views'), {
 }))
 
 // session & 鉴权
-app.keys = ['secret']
-app.use(session({}, app))
+app.keys = Config.keys
+app.use(session({
+  store: redisStore(Config.redis)
+}, app))
 require('./controllers/auth.js')
 app.use(passport.initialize())
 app.use(passport.session())

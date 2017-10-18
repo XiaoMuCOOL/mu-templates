@@ -50,7 +50,7 @@
 - ⭐[ES6][4]            -   ES6语法，如：async/await
 - ⭐[passport][5]       -   第三方登录: [github][15]/[QQ][19]/[WeChat][20]/[Weibo][21]
 - [JWT][6]            -   JSON Web Tokens 鉴权
-- [redis][7]          -   NOSQL数据库,做缓存
+- ⭐[redis][7]          -   NOSQL数据库,做缓存
 - [nginx][8]          -   HTTP和反向代理服务器
 - [https/ssl][9]      -   [阿里云][22]/[七牛云][23]
 - [http2][24]         -   新http协议
