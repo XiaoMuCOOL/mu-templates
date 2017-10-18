@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(action="/auth/login", method="post")
+    input(type="text", name="username")
+    input(type="text", name="password")
+    input(type="submit", value="登陆")
+  
+  a(href="/auth/github") github登录

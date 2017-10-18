@@ -1,16 +1,16 @@
 'use strict'
 const CounterModel = require('../models/counter')
-const config = require('../config/config')
+const Config = require('../config/config')
 const Util = require('./util')
 class Counter {
   constructor () {
-    if (config.sqe.length > 0) {
+    if (Config.sqe.length > 0) {
       this.init()
     }
   }
   async init () {
     try {
-      await CounterModel.create(config.sqe)
+      await CounterModel.create(Config.sqe)
       Util.success('创建Counter表成功')
     } catch (err) {
       Util.error('创建Counter表失败: ' + err.errmsg)

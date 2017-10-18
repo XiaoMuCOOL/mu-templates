@@ -27,6 +27,15 @@ class User {
     }
     return ctx.body
   }
+  async getById (id, ctx = {}) {
+    try {
+      const user = await UserModel.findById({_id: id})
+      ctx.body = Util.getMsg(user)
+    } catch (err) {
+      ctx.body = Util.getMsg(err.errmsg, err.code, '获取信息出错')
+    }
+    return ctx.body
+  }
   async updateByUserName (updateUser, ctx = {}) {
     try {
       if(updateUser.userPwd){
@@ -48,18 +57,33 @@ class User {
     }
     return ctx.body
   }
-  async login(ctx) {
-    let {userName, userPwd} = ctx.body || ctx.query
-    let user = await this.getByUserName(userName)
-    if(user.body && Util.MD5(userPwd) === user.body.userPwd) {
-      ctx.body = user
-    }else {
-      ctx.body = Util.getMsg({}, 100001, '用户名或密码错误')
+  async findOrCreate (user, type = 'userName') {
+    let query = {}
+    let result = {}
+    switch (type) {
+      case 'github':
+        query = { githubId: user.githubId }
+        break
+      case 'qq':
+        query = { qqId: user.qqId }
+        break
+      case 'wechat':
+        query = { wechatId: user.wechatId }
+        break
+      default:
+        query = { userName: user.userName }
+        break
     }
-    return ctx.body
-  }
-  loginByGitHub() {
-
+    try {
+      result = await UserModel.findOne(query)
+      if(!result) {
+        result = await this.save(user).body
+      }
+      Util.getMsg(result)
+    } catch (err) {
+      result = Util.getMsg(err.errmsg, err.code, '创建'+type+'账户失败')
+    }
+    return result
   }
 }
 

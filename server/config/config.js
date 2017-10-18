@@ -16,8 +16,9 @@ const config = {
     pass: ''
   },
   github: {
-    clientId: 'ef17fd53612fb8bea361',
-    clientSecret: '5dc4ee2d35feac53a4e0d03e04179b24db1704ec'   
+    clientID: 'ef17fd53612fb8bea361',
+    clientSecret: '5dc4ee2d35feac53a4e0d03e04179b24db1704ec',
+    callbackURL: 'http://localhost:3000/auth/github/callback'  
   }
 }
 

@@ -20,11 +20,11 @@ const userSchema = new mongoose.Schema({
   nickName: {// 昵称
     type: 'String',
     default: '萌新',
-    match: [/^[0-9a-zA-Z\u4e00-\u9fa5]{1,20}$/, '昵称只能输入数字、字符a-z、中文,最长20个字符!']
+    match: [/^[0-9a-zA-Z\u4e00-\u9fa5.]{1,20}$/, '昵称只能输入数字、字符a-z、中文,最长20个字符!']
   },
   userPhone: {
-    type: 'String',
-    required: '手机号不能为空!'
+    type: 'String'
+    // required: '手机号不能为空!'
   },
   userSex: {
     type: 'String',
@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
   },
 
   // 选填
+  userBio: {// 简介
+    type: 'String',
+    default: '这个人很懒,什么都没填'
+  },
   userAvatar: {
     type: 'String',
     default: '/upload/default_avatar.png'
@@ -55,6 +59,10 @@ const userSchema = new mongoose.Schema({
   invitationCodeNum: {// 邀请码使用次数
     type: Number,
     default: 10
+  },
+  githubId: {
+    type: 'String',
+    default: ''
   },
   userStatus: {// 用户状态 1.正常 2.在线、3离线、0封禁
     type: Number,
