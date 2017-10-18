@@ -3,9 +3,9 @@ import test from 'ava'
 import User from '../server/controllers/user'
 
 let user = {
-  userName:'xiaomu',
+  userName: 'xiaomu',
   userPwd: 'a123456',
-  userPhone:'15000785080'
+  userPhone: '15000785080'
 }
 
 // test.serial('user.save', async t => {
@@ -44,12 +44,11 @@ let user = {
 test.serial('user.login', async t => {
   t.log('测试用户登陆')
   let ctx = {
-    body : {
+    body: {
       userName: 'xiaomu',
       userPwd: 'a1234567'
     }
   }
-  let result =await User.login(ctx)
+  let result = await User.login(ctx)
   t.is(result.body.userName, user.userName, '测试返回用户名是否正确')
 })
-

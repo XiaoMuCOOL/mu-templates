@@ -7,7 +7,7 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login'
 }))
 
-router.get('/logout', function(ctx) {
+router.get('/logout', function (ctx) {
   ctx.logout()
   ctx.redirect('/')
 })

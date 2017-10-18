@@ -12,6 +12,6 @@ import test from 'ava'
 import Counter from '../server/controllers/counter'
 test('counter.getSeqById', async t => {
   t.log('测试groupId自增长')
-  let id =await Counter.getSeqById('groupId')
+  let id = await Counter.getSeqById('groupId')
   t.truthy(id, '测试id是否正确')
 })

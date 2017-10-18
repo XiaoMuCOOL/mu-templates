@@ -38,7 +38,7 @@ class User {
   }
   async updateByUserName (updateUser, ctx = {}) {
     try {
-      if(updateUser.userPwd){
+      if (updateUser.userPwd) {
         updateUser.userPwd = Util.MD5(updateUser.userPwd)
       }
       const user = await UserModel.findOneAndUpdate({userName: updateUser.userName}, {$set: updateUser}, {new: true})
@@ -76,12 +76,12 @@ class User {
     }
     try {
       result = await UserModel.findOne(query)
-      if(!result) {
+      if (!result) {
         result = await this.save(user).body
       }
       Util.getMsg(result)
     } catch (err) {
-      result = Util.getMsg(err.errmsg, err.code, '创建'+type+'账户失败')
+      result = Util.getMsg(err.errmsg, err.code, '创建' + type + '账户失败')
     }
     return result
   }
