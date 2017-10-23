@@ -18,5 +18,10 @@
     "name": "mu-grunt",
     "url": "github:xiaomucool/mu-templates#mu-grunt",
     "description": "Template based on Grunt(基于Grunt构建的前端模板)"
+  },
+  "mu-koa2": {
+    "name": "mu-koa2",
+    "url": "github:xiaomucool/mu-templates#mu-koa2",
+    "description": "Template based on Koa2(基于Koa2框架的NodeJS模板)"
   }
 }
