@@ -58,7 +58,7 @@
 - [axios][14]         -   Promise的http请求
 - [qiniu][12]         -   对象存储/CDN
 - [SMS][13]           -   阿里云的短信服务
-- [Email][25]         -   邮件模块
+- [nodemailer][25]         -   邮件模块
 
 
 ## License
