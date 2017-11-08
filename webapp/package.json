@@ -6,12 +6,11 @@
   "private": true,
   "scripts": {
     "start": "npm run build",
-    "build": "cross-env NODE_ENV=prod gulp --gulpfile build/gulpfile.prod.js",
-    "server": "cross-env NODE_ENV=prod gulp server --gulpfile build/gulpfile.prod.js",
-    "dev": "cross-env NODE_ENV=dev gulp watch --gulpfile build/gulpfile.prod.js",
-    "clean": "cross-env NODE_ENV=dev gulp clean --gulpfile build/gulpfile.prod.js",
-    "lint": "cross-env NODE_ENV=prod gulp lint --gulpfile build/gulpfile.prod.js",
-    "minify": "cross-env NODE_ENV=prod gulp minify --gulpfile build/gulpfile.prod.js",
+    "build": "cross-env NODE_ENV=prod gulp --gulpfile build/gulpfile.js",
+    "server": "cross-env NODE_ENV=prod gulp server --gulpfile build/gulpfile.js",
+    "dev": "cross-env NODE_ENV=dev gulp watch --gulpfile build/gulpfile.js",
+    "clean": "cross-env NODE_ENV=dev gulp clean --gulpfile build/gulpfile.js",
+    "minify": "cross-env NODE_ENV=prod gulp minify --gulpfile build/gulpfile.js",
     "lintAll": "standard --fix && stylelint --fix css/**/**.**"
   },
   "browserslist": [
@@ -32,7 +31,6 @@
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sequence": "^0.4.6",
-    "gulp-standard": "^10.1.1",
     "gulp-uglify": "^3.0.0",
     "postcss-cssnext": "^3.0.2",
     "precss": "^2.0.0",
@@ -44,7 +42,7 @@
     "globals": [
       "$",
       "JQuery",
-      "Utils"
+      "Util"
     ],
     "ignore": [
       "node_modules/**/*.js",

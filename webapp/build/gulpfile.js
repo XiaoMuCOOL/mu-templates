@@ -4,7 +4,6 @@ const sequence = require('gulp-sequence')
 const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
 const imagemin = require('gulp-imagemin')
-const standard = require('gulp-standard')
 const babel = require('gulp-babel')
 const postcss = require('gulp-postcss')
 const stylelint = require('stylelint')
@@ -15,36 +14,6 @@ const cssnano = require('cssnano')
 const bs = require('browser-sync').create()
 const del = require('del')
 const config = require('./config')
-
-let cssReporter = {}
-let jsReporter = {}
-if(process.env.NODE_ENV === 'prod'){
-  cssReporter = {
-    // 如果其他文件报错，已通过检查CSS文件会变空BUG
-    // throwError: true
-  }
-  jsReporter = {
-    // 同CSS，原因是因为我在原文件上做了fix
-    // breakOnError: true,
-    // breakOnWarning: true,
-    showFilePath: true
-  }
-}
-
-/*
- * 检查js语法
- */
-gulp.task('lintJs', () =>
-  gulp.src(config.js.src)
-    .pipe(standard({
-      fix: true,
-      rules: {
-        'standard/no-var': [0, "even"]
-      }
-    }))
-    .pipe(standard.reporter('default', jsReporter))
-    .pipe(gulp.dest(config.js.dest))
-)
 
 /*
  * 编译js
@@ -69,18 +38,6 @@ gulp.task('minifyJs', () =>
       }
     }))
     .pipe(gulp.dest(config.js.dest))
-)
-
-/*
- * 检查css语法
- */
-gulp.task('lintCss', () =>
-  gulp.src(config.css.src)
-    .pipe(postcss([
-      stylelint({fix: true}),
-      reporter(cssReporter)
-    ]))
-    .pipe(gulp.dest(config.css.dest))
 )
 
 /*
@@ -136,11 +93,6 @@ gulp.task('clean', () =>
 /* 组合任务 */
 
 /*
- * 检查js和css
- */
-gulp.task('lint', ['lintJs', 'lintCss'])
-
-/*
  * 编译js和css
  */
 gulp.task('translate', ['babel', 'postcss'])
@@ -158,7 +110,7 @@ gulp.task('minify', () => {
  * 默认所有都执行
  */
 gulp.task('default', ['clean'], () =>
-  gulp.start(['lint', 'minify'])
+  gulp.start(['minify'])
 )
 
 /*
@@ -176,7 +128,7 @@ gulp.task('watch', () =>
 /*
  * 启动服务器
  */
-gulp.task('server', () =>{
+gulp.task('server', ['postcss', 'babel'], () =>{
   bs.init({
     server: {
       baseDir: ['../WEB-INF/view', '../'],
@@ -186,7 +138,7 @@ gulp.task('server', () =>{
     logPrefix: "Browser Sync",
     logFileChanges: true
   })
-  gulp.watch(config.css.src, ['lintCss', 'postcss'])
-  gulp.watch(config.js.src, ['lintJs', 'babel'])
+  gulp.watch(config.css.src, ['postcss'])
+  gulp.watch(config.js.src, ['babel'])
   bs.watch(config.server.src,()=>bs.reload())
 })

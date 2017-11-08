@@ -1,5 +1,5 @@
 'use strict'
-class UtilsMethod {
+class Utils {
   constructor () {
     this.visions = '0.0.1'
   }
@@ -7,6 +7,6 @@ class UtilsMethod {
     return this.visions
   }
 }
-/* eslint-disable */
-const Utils = new UtilsMethod()
-/* eslint-enable */
+
+const Util = new Utils()
+cosnole.log(Util.getVisions())
