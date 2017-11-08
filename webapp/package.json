@@ -44,7 +44,7 @@
     "globals": [
       "$",
       "JQuery",
-      "Tools"
+      "Utils"
     ],
     "ignore": [
       "node_modules/**/*.js",
