@@ -128,7 +128,7 @@ gulp.task('watch', () =>
 /*
  * 启动服务器
  */
-gulp.task('server', ['postcss', 'babel'], () =>{
+gulp.task('server', ['postcss', 'babel'], () => {
   bs.init({
     server: {
       baseDir: ['../WEB-INF/view', '../'],
