@@ -4,8 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node server/bin/www",
-    "dev": "./node_modules/.bin/nodemon server/bin/www",
-    "prd": "pm2 start server/bin/www",
     "lint": "standard --fix",
     "test": "ava -v test/*.js"
   },
@@ -31,14 +29,18 @@
   },
   "devDependencies": {
     "ava": "^0.22.0",
-    "nodemon": "^1.12.1",
     "standard": "^10.0.3"
   },
   "standard": {
-    "globals": [],
+    "globals": [
+      "$",
+      "JQuery",
+      "Config",
+      "Util",
+      "FileReader"
+    ],
     "ignore": [
-      "node_modules/**.js",
-      "**/public/**/*.js"
+      "node_modules/**.js"
     ]
   },
   "readme": "ERROR: No README data found!"
