@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/bingblue/mu-cli">
-    <img width="200" heigth="200" src="https://github.com/bingblue/group/blob/master/public/img/logo-all.png">
+  <a href="http://www.bingblue.com">
+    <img width="112" heigth="112" src="https://github.com/bingblue/group/blob/master/public/img/logo-b-square.png">
   </a>
   <br>
   <br>
@@ -15,7 +15,7 @@
 	</a>
   <h1>Mu-Koa2</h1>
   <p>
-    Mu-Koa2(基于Koa2框架的NodeJS模板)
+    Backend template based on Nodejs & Koa2(基于Nodejs & Koa2框架的后端模板)
   <p>
   <br>
   <br>
@@ -41,7 +41,7 @@
     $ npm start
 ```
 
-## Mu-Koa2 涉及技术
+## Mu-Koa2 涉及技术 (⭐: `表示已完成`)
 
 - ⭐[Koa2][1]           -   下一代 Node.js web 框架 [中文文档][16]
 - ⭐[pug][2]            -   模板引擎(原名:Jade)
