@@ -1,6 +1,6 @@
 <div align="center">
   <a href="http://www.bingblue.com">
-    <img width="200" heigth="200" src="https://github.com/bingblue/group/blob/master/public/img/logo-b-square.png">
+    <img width="112" heigth="112" src="https://github.com/bingblue/group/blob/master/public/img/logo-b-square.png">
   </a>
   <br>
   <br>
