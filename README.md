@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/bingblue/mu-cli">
-    <img width="200" heigth="200" src="https://github.com/bingblue/group/blob/master/public/img/logo-all.png">
+  <a href="http://www.bingblue.com">
+    <img width="112" heigth="112" src="https://github.com/bingblue/group/blob/master/public/img/logo-b-square.png">
   </a>
   <br>
   <br>
