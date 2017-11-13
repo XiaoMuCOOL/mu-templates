@@ -11,6 +11,7 @@ const precss = require('precss')
 const cssnano = require('cssnano')
 const bs = require('browser-sync').create()
 const del = require('del')
+const same = require('gulp-concat-same')
 const config = require('./config')
 
 /*
@@ -43,6 +44,9 @@ gulp.task('minifyJs', () =>
  */
 gulp.task('postcss', () =>
   gulp.src(config.css.src)
+    .pipe(same({
+      suffix:''
+    }))
     .pipe(postcss([
       precss(),
       cssnext({

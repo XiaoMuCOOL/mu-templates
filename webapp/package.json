@@ -1,5 +1,5 @@
 {
-  "name": "{{ projectName }}",
+  "name": "projectname",
   "version": "0.0.1",
   "description": "{{ description }}",
   "author": "{{ author }}",
@@ -10,7 +10,7 @@
     "server": "cross-env NODE_ENV=prod gulp server --gulpfile build/gulpfile.js",
     "dev": "cross-env NODE_ENV=dev gulp watch --gulpfile build/gulpfile.js",
     "clean": "cross-env NODE_ENV=dev gulp clean --gulpfile build/gulpfile.js",
-    "minify": "cross-env NODE_ENV=prod gulp minify --gulpfile build/gulpfile.js",
+    "translate": "cross-env NODE_ENV=prod gulp translate --gulpfile build/gulpfile.js",
     "lintAll": "standard --fix && stylelint --fix css/**/**.**"
   },
   "browserslist": [
@@ -27,6 +27,8 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-same": "^0.0.1",
     "gulp-imagemin": "^3.3.0",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
@@ -35,7 +37,7 @@
     "postcss-cssnext": "^3.0.2",
     "precss": "^2.0.0",
     "standard": "^10.0.3",
-    "stylelint": "^8.1.1",
+    "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0"
   },
   "standard": {
