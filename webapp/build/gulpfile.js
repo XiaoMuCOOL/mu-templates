@@ -1,4 +1,6 @@
 'use strict'
+const fs = require('fs')
+const path = require('path')
 const gulp = require('gulp')
 const sequence = require('gulp-sequence')
 const uglify = require('gulp-uglify')
@@ -12,6 +14,7 @@ const cssnano = require('cssnano')
 const bs = require('browser-sync').create()
 const del = require('del')
 const same = require('gulp-concat-same')
+const htmlReplace = require('gulp-html-replace')
 const config = require('./config')
 
 /*
@@ -84,6 +87,26 @@ gulp.task('minifyImg', () =>
 )
 
 /*
+ * 生成HTML
+ */
+gulp.task('html', () => {
+  let htmlReplaceTask = {}
+  fs.readdirSync('../WEB-INF/view/part').forEach(file => {
+    let attr = path.parse(file).name
+    htmlReplaceTask[attr] = {
+      src: fs.readFileSync('../WEB-INF/view/part/' + file),
+      tpl: '%s'
+    }
+  })
+  return gulp.src(config.html.src)
+    .pipe(htmlReplace(htmlReplaceTask, {
+      keepUnassigned: true,
+      keepBlockTags: true
+    }))
+    .pipe(gulp.dest(config.html.dest))
+})
+
+/*
  * 删除生成文件
  */
 gulp.task('clean', () =>
@@ -112,7 +135,7 @@ gulp.task('minify', () => {
  * 默认所有都执行
  */
 gulp.task('default', ['clean'], () =>
-  gulp.start(['minify'])
+  gulp.start(['html', 'minify'])
 )
 
 /*
@@ -142,5 +165,6 @@ gulp.task('server', ['postcss', 'babel'], () => {
   })
   gulp.watch(config.css.src, ['postcss'])
   gulp.watch(config.js.src, ['babel'])
+  gulp.watch(config.html.watch, ['html'])
   bs.watch(config.server.src,()=>bs.reload())
 })

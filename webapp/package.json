@@ -10,6 +10,7 @@
     "server": "cross-env NODE_ENV=prod gulp server --gulpfile build/gulpfile.js",
     "dev": "cross-env NODE_ENV=dev gulp watch --gulpfile build/gulpfile.js",
     "clean": "cross-env NODE_ENV=dev gulp clean --gulpfile build/gulpfile.js",
+    "html": "cross-env NODE_ENV=dev gulp html --gulpfile build/gulpfile.js",
     "translate": "cross-env NODE_ENV=prod gulp translate --gulpfile build/gulpfile.js",
     "lintAll": "standard --fix && stylelint --fix css/**/**.**"
   },
@@ -29,6 +30,7 @@
     "gulp-babel": "^7.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-concat-same": "^0.0.1",
+    "gulp-html-replace": "^1.6.2",
     "gulp-imagemin": "^3.3.0",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",

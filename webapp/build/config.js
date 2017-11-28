@@ -7,6 +7,11 @@ module.exports = {
     src: '../img/**/*.**',
     dest: '../img'
   },
+  html: {
+    src: ['../WEB-INF/view/**/*.html', '!../WEB-INF/view/part/*.html'],
+    dest: '../WEB-INF/view/',
+    watch: '../WEB-INF/view/part/*.html'
+  },
   js: {
     src: ['../js/**/*.js', '!../js/**/*.min.*','!../js/+(libs|vendor)/**/*.js'],
     dest: '../js'
