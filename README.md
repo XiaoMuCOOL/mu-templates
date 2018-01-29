@@ -34,6 +34,7 @@
 ## 版本列表
 
 - [mu-simple][1]  -  A simple template with ESlint & Stylelint(最简单的模板，无构建工具，有js和css语法检测)
+- [mu-wegame][8]  -  A simple template with Wegame(一个简单的微信小游戏模板)
 - [mu-koa2][7]  -  Backend template based on Nodejs & Koa2(基于Nodejs & Koa2框架的后端模板)
 - [mu-jquery][2]  -  Multi-page template based on JQuery with webpack(基于webpack和JQuery的前端多页面模板)
 - [mu-gulp][5] - Frontend automation based on JAVA directory structure with gulp(基于gulp和JAVA目录结构的前端自动化)
@@ -44,7 +45,7 @@
 
 **Mu-Templates** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
 
-Copyright © 2017 · 滨清科技 , Inc. 
+Copyright © 2018 · 滨清科技 , Inc. 
 
 All Rights Reserved · Powered by : **小牧COOL**
 
@@ -55,3 +56,4 @@ All Rights Reserved · Powered by : **小牧COOL**
 [5]:https://github.com/xiaomucool/mu-templates/tree/mu-gulp
 [6]:https://github.com/xiaomucool/mu-templates/tree/mu-vue
 [7]:https://github.com/xiaomucool/mu-templates/tree/mu-koa2
+[8]:https://github.com/xiaomucool/mu-templates/tree/mu-wegame

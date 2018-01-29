@@ -4,6 +4,11 @@
     "url": "github:xiaomucool/mu-templates#mu-simple",
     "description": "A simple template with ESlint & Stylelint(最简单的模板，无构建工具，有js和css语法检测)"
   },
+  "mu-wegame": {
+    "name": "mu-wegame",
+    "url": "github:xiaomucool/mu-templates#mu-wegame",
+    "description": "A simple template with Wegame(一个简单的微信小游戏模板)"
+  },
   "mu-jquery": {
     "name": "mu-jquery",
     "url": "github:xiaomucool/mu-templates#mu-jquery",
