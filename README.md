@@ -1,6 +1,4 @@
-Mu-Grunt
-=====
-
+# Mu-Grunt
 mu-grunt模板:前端自动化模板,包含合并、编译、压缩、发布等.
 
 **作者** ： 小牧COOL
@@ -72,6 +70,6 @@ mu-grunt模板:前端自动化模板,包含合并、编译、压缩、发布等.
 
 **Mu-Grunt** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
 
-Copyright © 2017 · 滨清科技 , Inc. 
+Copyright © 2018 · 滨清科技 , Inc. 
 
 All Rights Reserved · Powered by : **小牧COOL**
