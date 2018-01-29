@@ -1,11 +1,14 @@
-extends layout
+extends part/layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  form(action="/auth/login", method="post")
-    input(type="text", name="username")
-    input(type="text", name="password")
-    input(type="submit", value="登陆")
-  
-  a(href="/auth/github") github登录
+  include part/header.pug
+  main.login
+    h1.logo
+      img(src= app.root + "/img/logo_single.png", alt="bingblue logo")
+    form(action="/auth/login", method="post")
+      input(type="text", name="username")
+      input(type="text", name="password")
+      input(type="submit", value="登陆")
+    
+    a(href="/auth/github") github登录
+  include part/footer.pug

@@ -1,5 +1,32 @@
-extends layout
+extends part/layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  include part/header.pug
+  main
+    article
+      figure.hero
+        img(src= app.root + "/img/logo_fat.png", alt="bingblue logo")
+        figcaption Bing Bule
+        p Bingblue是一家深刻搭街坊，
+        p 在对的飞洒多少阿斯顿说的地方士大夫十分，
+        p 所以阿斯顿发生发射点发射点发射点的发+
+    article.business
+      figure
+        figcaption 主营业务
+        p 内容
+    article.works
+      figure
+        figcaption 项目·作品
+        p 内容
+    article.team
+      figure
+        figcaption 我们的团队
+        p 内容
+    article.contact
+      figure
+        figcaption 联系我们
+        p 内容
+    aside
+      section
+
+  include part/footer.pug
