@@ -1,0 +1,32 @@
+doctype html
+html(lang='en')
+  head
+    meta(content='webkit', name='renderer')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(charset='UTF-8')
+    title {{ projectName }}
+    meta(name='Keywords', content='{{ projectName }}')
+    meta(name='description', content='{{ description }}')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(content='telephone=no, address=no', name='format-detection')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    link(rel='apple-touch-icon', href='apple-touch-icon.png')
+    //- Place favicon.ico in the root directory
+    //- CSS 开始
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    //- 网站内容
+    block content
+
+    script(src='https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\\/script>')
+    script(src='/js/config.js')
+    script(src='/js/util.js')
+    script(src='/js/index.js')

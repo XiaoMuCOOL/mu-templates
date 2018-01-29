@@ -1,5 +1,5 @@
 'use strict'
-const config = {
+const Config = {
   keys: ['mu-koa2'],
   mongodb: {
     cookieSecret: 'mygroup',
@@ -28,4 +28,4 @@ const config = {
   }
 }
 
-module.exports = config
+module.exports = Config
