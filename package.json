@@ -4,51 +4,7 @@
   "description": "{{ description }}",
   "author": "{{ author }}",
   "scripts": {
-    "start": "npm run lint && npm run lintcss",
-    "lint": "standard --fix && standard",
-    "lintcss": "stylelint --fix css/**.css"
-  },
-  "devDependencies": {
-    "standard": "^10.0.3",
-    "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^17.0.0"
-  },
-  "standard": {
-    "globals": [
-      "$",
-      "JQuery"
-    ],
-    "ignore": [
-      "node_modules/**.js"
-    ]
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "ignoreFiles": [
-      "css/normalize.css",
-      "css/**/**.min.css"
-    ],
-    "fix": true,
-    "rules": {
-      "at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "extends",
-            "ignores",
-            "for",
-            "if",
-            "else",
-            "mixin",
-            "content"
-          ]
-        }
-      ],
-      "unit-whitelist": [
-        "rem",
-        "%"
-      ]
-    }
+    "start": "mu -V"
   },
   "readme": "ERROR: No README data found!"
 }
