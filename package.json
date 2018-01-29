@@ -1,6 +1,8 @@
 {
-  "name": "mu-koa2",
+  "name": "{{ projectName }}",
   "version": "0.0.1",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
   "private": true,
   "scripts": {
     "start": "node server/bin/www",
