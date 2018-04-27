@@ -82,3 +82,9 @@ typings/
 # IDE
 .vscode
 .idea
+
+#vue
+dist/
+.cache/
+package-lock.json
+yarn.lock
