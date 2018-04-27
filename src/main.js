@@ -17,6 +17,11 @@ Vue.component('Group', Group)
  */
 // import Axios from 'axios'
 // Vue.prototype.axios = Axios
+/**
+ * 引入vuex
+ */
+import Vuex from 'vuex'
+Vue.use(Vuex)
 
 /**
  * 路由发生变化修改页面title

@@ -24,7 +24,7 @@ export default new Router({
       name: 'Reg',
       component: Reg,
       meta: {
-        title: '注册'
+        title: '用户注册'
       }
     },
     {
@@ -32,7 +32,7 @@ export default new Router({
       name: 'Login',
       component: Login,
       meta: {
-        title: '登录'
+        title: '用户登录'
       }
     }
   ]
