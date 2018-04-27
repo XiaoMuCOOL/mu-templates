@@ -3,13 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import Vux from 'vux';
-
-// Vue.use(Vux);
+/**
+ * Vux 不支持全部导入
+ */
+// import Vux from 'vux'
+// Vue.use(Vux)
 //按需引入
-// import { Button, Table } from 'iview';
-// Vue.component('Button', Button);
-// Vue.component('Table', Table)
+import { Group } from 'vux'
+Vue.component('Group', Group)
 
 /**
  * axios
