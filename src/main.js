@@ -20,8 +20,7 @@ Vue.component('Group', Group)
 /**
  * 引入vuex
  */
-import Vuex from 'vuex'
-Vue.use(Vuex)
+import store from './store'
 
 /**
  * 路由发生变化修改页面title
@@ -39,6 +38,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   render: h => h(App)
