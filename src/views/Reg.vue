@@ -6,9 +6,9 @@
         <group-title slot="title">
           <span class="logo-txt">用户注册</span>
         </group-title>
-        <x-input title="手机号" v-model="regInfo.userPhone" keyboard="number" placeholder="请输入手机号" is-type="china-mobile" require></x-input>
+        <x-input title="手机号" v-model="regInfo.userPhone" keyboard="number" placeholder="请输入手机号" :is-type="checkUserPhone" require></x-input>
         <x-input title="密码" v-model="regInfo.userPwd" type="password" placeholder="设置密码" require></x-input>
-        <x-input title="验证码" name="regImgCode" v-model="regImgCode" :max='4' :is-type="checkCodeFun" @on-focus="createCode">
+        <x-input title="验证码" name="regImgCode" v-model="regImgCode" :max='4' :is-type="checkRegImgCode" @on-focus="createCode">
           <span class="check-code" slot="right">{{ checkCode }}</span>
         </x-input>
         <x-input title="短信验证码" class="weui-vcode" name="regMsgCode" v-model="regInfo.regMsgCode" :max='6'>
@@ -68,11 +68,23 @@ export default {
       }
     },
     // 验证码验证
-    checkCodeFun(val) {
+    checkRegImgCode(val = this.regImgCode) {
       return {
         valid: val && val.toUpperCase() === this.checkCode,
         msg: '请输入正确的验证码'
       }
+    },
+    // 手机号验证
+    checkUserPhone(val = this.userPhone) {
+      const patternPhone = /^1\d{10}$/
+      return {
+        valid: val && patternPhone.test(val),
+        msg: '请输入正确的手机号'
+      }
+    },
+    // 全局验证
+    checkAll() {
+
     }
   }
 }
