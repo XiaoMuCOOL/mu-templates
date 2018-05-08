@@ -8,11 +8,11 @@
         </group-title>
         <x-input title="手机号" v-model="regInfo.userPhone" keyboard="number" placeholder="请输入手机号" is-type="china-mobile" require></x-input>
         <x-input title="密码" v-model="regInfo.userPwd" type="password" placeholder="设置密码" require></x-input>
-        <x-input title="验证码" name="regImgCode" v-model="regInfo.regImgCode" :equal-with="checkCode">
-          <span class="check-code" slot="label">{{ checkCode }}</span>
+        <x-input title="验证码" name="regImgCode" v-model="regImgCode" :max='4' :is-type="checkCodeFun" @on-focus="createCode">
+          <span class="check-code" slot="right">{{ checkCode }}</span>
         </x-input>
-        <x-input title="发送验证码" class="weui-vcode" name="regMsgCode" v-model="regInfo.regMsgCode">
-          <x-button slot="right" type="primary" plain mini action-type="button">发送验证码</x-button>
+        <x-input title="短信验证码" class="weui-vcode" name="regMsgCode" v-model="regInfo.regMsgCode" :max='6'>
+          <x-button slot="right" type="primary" plain mini action-type="button" @click.native="postMsg">发送验证码</x-button>
         </x-input>
       </group>
       <div class="box">
@@ -37,22 +37,27 @@ export default {
       regInfo: {
         userPhone: '',
         userPwd: '',
-        regImgCode: '',
         regMsgCode: ''
       },
-      checkCode: '',
+      regImgCode: '',
+      checkCode: ''
     }
   },
   created(){
     this.createCode()
   },
   methods: {
+    // 注册
     postReg () {
       console.log('regInfo=', this.regInfo)
       this.regInfo.userPhone = '15000785111'
     },
+    // 发送短信验证码
+    postMsg () {
+      // if()
+    },
     // 图片验证码
-    createCode(){
+    createCode() {
       this.checkCode = ""
       const codeLength = 4    //验证码的长度   
       const random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',   
@@ -60,6 +65,13 @@ export default {
       for(let i = 0; i < codeLength; i++) {
         let index = Math.floor(Math.random()*36)
         this.checkCode += random[index]
+      }
+    },
+    // 验证码验证
+    checkCodeFun(val) {
+      return {
+        valid: val.toUpperCase() === this.checkCode,
+        msg: '请输入正确的验证码'
       }
     }
   }
@@ -82,10 +94,11 @@ export default {
   }
   .check-code{
     border: 1px solid #44bf8b;
-    padding: 6px 20px;
+    padding: 3px 0px;
+    width: 88px;
     background: #44bf8b;
     color: #eee;
-    line-height: 2.6;
-    margin-right: 15px;
+    display: inline-block;
+    text-align: center;
   }
 </style>
