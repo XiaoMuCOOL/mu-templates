@@ -6,12 +6,12 @@
         <group-title slot="title">
           <span class="logo-txt">用户注册</span>
         </group-title>
-        <x-input title="手机号" v-model="regInfo.userPhone" keyboard="number" placeholder="请输入手机号" :is-type="checkUserPhone" require></x-input>
-        <x-input title="密码" v-model="regInfo.userPwd" type="password" placeholder="设置密码" require></x-input>
-        <x-input title="验证码" name="regImgCode" v-model="regImgCode" :max='4' :is-type="checkRegImgCode" @on-focus="createCode">
+        <x-input title="手机号" v-model="regInfo.userPhone" keyboard="number" placeholder="请输入手机号" :is-type="checkUserPhone" required></x-input>
+        <x-input title="密码" v-model="regInfo.userPwd" type="password" placeholder="设置密码" required></x-input>
+        <x-input title="验证码" name="regImgCode" v-model="regImgCode" :max='4' :is-type="checkRegImgCode" @on-focus="createCode" required>
           <span class="check-code" slot="right">{{ checkCode }}</span>
         </x-input>
-        <x-input title="短信验证码" class="weui-vcode" name="regMsgCode" v-model="regInfo.regMsgCode" :max='6'>
+        <x-input title="短信验证码" class="weui-vcode" name="regMsgCode" v-model="regInfo.regMsgCode" :max='6' required>
           <x-button slot="right" type="primary" plain mini action-type="button" @click.native="postMsg">发送验证码</x-button>
         </x-input>
       </group>
@@ -54,7 +54,7 @@ export default {
     },
     // 发送短信验证码
     postMsg () {
-      // if(checkCodeFun(this.regImgCode).valid && )
+      console.log('checkAll:' + this.checkAll())
     },
     // 图片验证码
     createCode() {
@@ -84,7 +84,16 @@ export default {
     },
     // 全局验证
     checkAll() {
-
+      let validUserPhone = this.checkUserPhone().valid
+      let validUserPwd = this.userPwd ? true : false
+      let validRegImgCode = this.checkRegImgCode().valid
+      console.log('validUserPhone'+validUserPhone)
+      console.log('validUserPwd'+this.userPwd)
+      console.log('validRegImgCode'+validRegImgCode)
+      if(validUserPhone && validUserPwd && validRegImgCode) {
+        return true
+      }
+      return false
     }
   }
 }
