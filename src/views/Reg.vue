@@ -54,7 +54,7 @@ export default {
     },
     // 发送短信验证码
     postMsg () {
-      // if()
+      // if(checkCodeFun(this.regImgCode).valid && )
     },
     // 图片验证码
     createCode() {
@@ -70,7 +70,7 @@ export default {
     // 验证码验证
     checkCodeFun(val) {
       return {
-        valid: val.toUpperCase() === this.checkCode,
+        valid: val && val.toUpperCase() === this.checkCode,
         msg: '请输入正确的验证码'
       }
     }
