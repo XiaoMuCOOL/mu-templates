@@ -1,113 +1,63 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div class="login">
+    <box gap="10px 10px">
+      <img src="../assets/logo.png" alt="Logo" class="logo-img">
+      <group>
+        <group-title slot="title">
+          <span class="logo-txt">用户登录</span>
+        </group-title>
+        <x-input title="手机号" v-model="userPhone" keyboard="number" placeholder="请输入手机号" required></x-input>
+        <x-input title="密码" v-model="userPwd" type="password" placeholder="请输入密码" required></x-input>
+      </group>
+      <div class="box">
+        <x-button type="primary" @click.native="login">登录</x-button>
+      </div>
+    </box>
   </div>
 </template>
 
 <script>
+import { XInput,GroupTitle,XButton,Box  } from 'vux'
+import API from '../common/api'
+import qs from "qs"
 export default {
   name: 'Login',
+  components: {
+    XInput,
+    GroupTitle,
+    XButton,
+    Box
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      userPhone: '',
+      userPwd: ''
+    }
+  },
+  methods: {
+    // 登陆
+    login () {
+      alert('登陆成功！')
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style scoped lang="less">
+  .login {
+    text-align: center;
+    .logo-img {
+      width: 100px;
+      margin-top: 100px;
+    }
+    .logo-txt {
+      font-size: 1.6rem;
+    }
+    .box {
+      padding: 5%;
+    }
+  }
+  .weui-cells__title {
+    margin-bottom: 20px;
+  }
 </style>

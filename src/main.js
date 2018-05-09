@@ -17,6 +17,9 @@ Vue.component('Group', Group)
  */
 // import Axios from 'axios'
 // Vue.prototype.axios = Axios
+import { AjaxPlugin } from 'vux'
+Vue.use(AjaxPlugin)
+
 /**
  * 引入vuex
  */
