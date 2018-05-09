@@ -93,7 +93,7 @@ export default {
     // 短信验证
     checkMsgCode(val = this.regInfo.msgCode) {
       let url = API.checkMsgCode + '?mobile=' + this.regInfo.userPhone + '&veriCode=' + this.regInfo.msgCode
-      let msgCode = this.$http.get(url).then(({data})=>{
+      let msgCode = this.$http.get(url).then(({data})=> {
         let check = this.regInfo.msgCode !== '' && data
         this.msgCodeIcon = check ? '' : 'error'
       })
@@ -117,11 +117,6 @@ export default {
           this.second--
         }
       }, 1000)
-    }
-  },
-  watch: {
-    secondTxt() {
-      return this.second === 0 ? '发送验证码' : '还剩' + this.second + '秒'
     }
   },
   computed: {
