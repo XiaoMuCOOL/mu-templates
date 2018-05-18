@@ -1,46 +1,49 @@
-// initial state
-// shape: [{ id, quantity }]
+'use strict'
+import Axios from "../../common/axios"
+import API from '../../common/api'
+
+// 初始化数据
 const state = {
-  user: {}
+  user: {
+    nickName: 'aaa',
+    token: ''
+  }
 }
 
 // getters
 const getters = {
-  userName: state => state.user.userName,
+  user: state => state.user,
+  nickName: state => state.user.nickName,
 
   userRegDate: (state, getters, rootState) => {
     return new Date(state.user.userRegDate).toLocaleTimeString()
   }
 }
 
-// actions
+// actions: 异步方法
 const actions = {
-  checkout ({ commit, state }, products) {
-    const savedCartItems = [...state.added]
-    commit('setCheckoutStatus', null)
+  async login ({ commit }, postData) {
+    let user = await Axios.post(API.login, postData)
+    commit('login', user)
+  },
+  async userInfo ({ commit }) {
+    let user = await Axios.post(API.userInfo)
+    commit('userInfo', user)
   }
 }
 
-// mutations
+// mutations: 同步并且操作数据的方法
 const mutations = {
-  pushProductToCart (state, { id }) {
-    state.added.push({
-      id,
-      quantity: 1
-    })
+  login (state, user) {
+    state.user = user
+    localStorage.setItem('token', user.token)
   },
-
-  incrementItemQuantity (state, { id }) {
-    const cartItem = state.added.find(item => item.id === id)
-    cartItem.quantity++
+  userInfo (state, user) {
+    state.user = user
   },
-
-  setCartItems (state, { items }) {
-    state.added = items
-  },
-
-  setCheckoutStatus (state, status) {
-    state.checkoutStatus = status
+  logout () {
+    state.user = {}
+    localStorage.clear()
   }
 }
 

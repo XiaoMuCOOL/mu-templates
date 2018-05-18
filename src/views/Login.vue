@@ -10,7 +10,7 @@
         <x-input title="密码" v-model="userPwd" type="password" placeholder="请输入密码" required></x-input>
       </group>
       <div class="box">
-        <x-button type="primary" @click.native="login">登录</x-button>
+        <x-button type="primary" @click.native="postLogin">登录</x-button>
       </div>
     </box>
   </div>
@@ -18,8 +18,8 @@
 
 <script>
 import { XInput,GroupTitle,XButton,Box  } from 'vux'
-import API from '../common/api'
-import qs from "qs"
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'Login',
   components: {
@@ -34,10 +34,25 @@ export default {
       userPwd: ''
     }
   },
+  computed: {
+    // 使用对象展开运算符将 getter 混入 computed 对象中
+    ...mapGetters([
+      'nickName'
+    ])
+  },
   methods: {
+    ...mapActions([
+      'login'
+    ]),
     // 登陆
-    login () {
-      alert('登陆成功！')
+    postLogin () {
+      let postData = {
+        userName: this.userPhone,
+        userPwd: this.userPwd
+      }
+      this.login(postData).then(() => {
+        this.$router.push({ name: 'Index', params: { nickName: this.nickName }})
+      })
     }
   }
 }

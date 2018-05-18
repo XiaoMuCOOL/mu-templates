@@ -1,3 +1,4 @@
+'use strict'
 import Vue from 'vue'
 import Router from 'vue-router'
 // 全加载
@@ -24,7 +25,9 @@ export default new Router({
       name: 'Reg',
       component: Reg,
       meta: {
-        title: '用户注册'
+        title: '用户注册',
+        // true为不进行权限验证,false或不写默认进行验证
+        auth: true
       }
     },
     {
@@ -32,8 +35,14 @@ export default new Router({
       name: 'Login',
       component: Login,
       meta: {
-        title: '用户登录'
+        title: '用户登录',
+        auth: true
       }
+    },
+    // 404页面 或 重定向到首页
+    {
+      path: "*",
+      redirect: "/"
     }
   ]
 })

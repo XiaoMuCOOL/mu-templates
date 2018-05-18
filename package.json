@@ -1,8 +1,8 @@
 {
-  "name": "mu-vue-webpack4",
+  "name": "{{ projectName }}",
   "version": "0.0.1",
   "description": "{{ description }}",
-  "author": "xiaomucool",
+  "author": "{{ author }}",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --mode development --inline --progress --config build/webpack.dev.conf.js",

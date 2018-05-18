@@ -1,3 +1,4 @@
+'use strict'
 // state
 const state = {
   reg: {
