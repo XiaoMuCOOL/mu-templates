@@ -1,13 +1,23 @@
 {
-  "mu-simple": {
-    "name": "mu-simple",
-    "url": "github:xiaomucool/mu-templates#mu-simple",
-    "description": "A simple template with ESlint & Stylelint(最简单的模板，无构建工具，有js和css语法检测)"
-  },
   "mu-wegame": {
     "name": "mu-wegame",
     "url": "github:xiaomucool/mu-templates#mu-wegame",
     "description": "A simple template with Wegame(一个简单的微信小游戏模板)"
+  },
+  "mu-vue-h5": {
+    "name": "mu-vue-h5",
+    "url": "github:xiaomucool/mu-templates#mu-vue-h5",
+    "description": "A Vue.js Template Based on Webpack4 and Vux UI.(基于Webpack4和Vux UI的Vue模板)"
+  },
+  "mu-koa2": {
+    "name": "mu-koa2",
+    "url": "github:xiaomucool/mu-templates#mu-koa2",
+    "description": "Template based on Koa2(基于Koa2框架的NodeJS模板)"
+  },
+  "mu-simple": {
+    "name": "mu-simple",
+    "url": "github:xiaomucool/mu-templates#mu-simple",
+    "description": "A simple template with ESlint & Stylelint(最简单的模板，无构建工具，有js和css语法检测)"
   },
   "mu-jquery": {
     "name": "mu-jquery",
@@ -23,10 +33,5 @@
     "name": "mu-grunt",
     "url": "github:xiaomucool/mu-templates#mu-grunt",
     "description": "Template based on Grunt(基于Grunt构建的前端模板)"
-  },
-  "mu-koa2": {
-    "name": "mu-koa2",
-    "url": "github:xiaomucool/mu-templates#mu-koa2",
-    "description": "Template based on Koa2(基于Koa2框架的NodeJS模板)"
   }
 }
