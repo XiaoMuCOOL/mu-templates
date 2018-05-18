@@ -24,24 +24,24 @@ const getters = {
 const actions = {
   async login ({ commit }, postData) {
     let user = await Axios.post(API.login, postData)
-    commit('login', user)
+    commit('LOGIN', user)
   },
   async userInfo ({ commit }) {
     let user = await Axios.post(API.userInfo)
-    commit('userInfo', user)
+    commit('USER_INFO', user)
   }
 }
 
 // mutations: 同步并且操作数据的方法
 const mutations = {
-  login (state, user) {
+  LOGIN (state, user) {
     state.user = user
     localStorage.setItem('token', user.token)
   },
-  userInfo (state, user) {
+  USER_INFO (state, user) {
     state.user = user
   },
-  logout () {
+  LOGOUT () {
     state.user = {}
     localStorage.clear()
   }

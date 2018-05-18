@@ -35,7 +35,7 @@ Axios.interceptors.response.use(response => {
     switch (err.response.status) {
       case 401:
         // 身份认证失败，清除token并返回登陆页
-        store.commit('logout')
+        store.commit('LOGOUT')
         router.replace({
           path: 'login',
           query: { redirect: router.currentRoute.fullPath }
