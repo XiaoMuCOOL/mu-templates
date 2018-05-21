@@ -13,9 +13,9 @@
   <a href="https://jq.qq.com/?_wv=1027&k=5tyQDAd">
 		<img src="https://img.shields.io/badge/QQ%20Group-215259343-blue.svg">
 	</a>
-  <h1>Mu-Koa2</h1>
+  <h1>Mu-mockserver</h1>
   <p>
-    Backend template based on Nodejs & Koa2(基于Nodejs & Koa2框架的后端模板)
+    The Mock Server base on koa2(基于Koa2框架的mock服务器)
   <p>
   <br>
   <br>
@@ -41,29 +41,15 @@
     $ npm start
 ```
 
-## Mu-Koa2 涉及技术 (⭐: `表示已完成`)
+## Mu-Koa2 涉及技术
 
-- ⭐[Koa2][1]           -   下一代 Node.js web 框架 [中文文档][16]
-- ⭐[pug][2]            -   模板引擎(原名:Jade)
-- ⭐[MongoDB][3]        -   基于分布式文件存储的NOSQL数据库 [教程][17]
-- ⭐[mongoose][18]      -   ODM框架，对象文档映射
-- ⭐[ES6][4]            -   ES6语法，如：async/await
-- ⭐[passport][5]       -   第三方登录: [github][15]/[QQ][19]/[WeChat][20]/[Weibo][21]
+- [Koa2][1]           -   下一代 Node.js web 框架 [中文文档][16]
 - [JWT][6]            -   JSON Web Tokens 鉴权
-- ⭐[redis][7]          -   NOSQL数据库,做缓存
-- [nginx][8]          -   HTTP和反向代理服务器
-- [https/ssl][9]      -   [阿里云][22]/[七牛云][23]
-- [http2][24]         -   新http协议
-- [PM2][10]           -   高级的Node.js的生产流程管理器
-- [axios][14]         -   Promise的http请求
-- [qiniu][12]         -   对象存储/CDN
-- [SMS][13]           -   阿里云的短信服务
-- [nodemailer][25]         -   邮件模块
 
 
 ## License
 
-**Mu-Koa2** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
+**Mu-mockserver** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
 
 Copyright © 2017 · 滨清科技 , Inc. 
 

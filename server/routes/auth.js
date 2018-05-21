@@ -15,9 +15,4 @@ router.post('/login', (ctx, next) => {
   })(ctx, next)
 })
 
-router.get('/logout', function (ctx) {
-  ctx.logout()
-  ctx.redirect('/')
-})
-
 module.exports = router
