@@ -1,47 +1,29 @@
 {
-  "name": "mu-koa2",
+  "name": "projectnam",
   "version": "0.0.1",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "start": "node server/bin/www",
-    "lint": "standard --fix",
-    "test": "ava -v test/*.js"
+    "start": "node server/bin/www"
   },
   "dependencies": {
     "colors": "^1.1.2",
     "debug": "^3.1.0",
     "glob": "^7.1.2",
+    "jsonwebtoken": "^8.2.1",
     "koa": "^2.3.0",
-    "koa-bodyparser": "^4.2.0",
+    "koa-better-body": "^3.0.4",
     "koa-json": "^2.0.2",
     "koa-logger": "^3.1.0",
     "koa-onerror": "^3.1.0",
     "koa-passport": "^4.0.1",
-    "koa-redis": "^3.1.1",
     "koa-router": "^7.2.1",
-    "koa-session": "^5.5.0",
+    "koa2-cors": "^2.0.5",
     "koa-static": "^4.0.1",
     "koa-views": "^6.1.0",
-    "mongoose": "^4.12.1",
-    "passport-github2": "^0.1.11",
     "passport-local": "^1.0.0",
-    "pug": "^2.0.0-rc.4"
-  },
-  "devDependencies": {
-    "ava": "^0.22.0",
-    "standard": "^10.0.3"
-  },
-  "standard": {
-    "globals": [
-      "$",
-      "JQuery",
-      "Config",
-      "Util",
-      "FileReader"
-    ],
-    "ignore": [
-      "node_modules/**.js"
-    ]
+    "passport-jwt": "^4.0.0"
   },
   "readme": "ERROR: No README data found!"
 }

@@ -1,7 +1,6 @@
 'use strict'
 require('colors')
 const crypto = require('crypto')
-
 class Util {
   getMsg (body = {}, code = 200, msg = 'success') {
     let result = {

@@ -1,13 +1,24 @@
 'use strict'
 const passport = require('koa-passport')
-const Config = require('../config/config')
 const User = require('./user')
 const Util = require('./util')
+const JWT = require('jsonwebtoken')
 
+function createToken(id) {
+  const token = JWT.sign({ id }, 'mockserver', {
+    expiresIn: '2h',
+    issuer: 'www.xx.com', // 签发者
+    audience: 'www.xx.com' // 接收方
+  })
+  return token
+}
+
+// 序列化ctx.login()触发
 passport.serializeUser(function (user, done) {
   done(null, user._id)
 })
 
+// 反序列化
 passport.deserializeUser(async function (id, done) {
   try {
     const user = await User.getById(id)
@@ -16,13 +27,16 @@ passport.deserializeUser(async function (id, done) {
     done(err)
   }
 })
-
 // 普通登录
 const LocalStrategy = require('passport-local').Strategy
-passport.use(new LocalStrategy(function (userName, userPwd, done) {
+passport.use(new LocalStrategy({
+  usernameField: 'userName',
+  passwordField: 'userPwd'
+}, function (userName, userPwd, done) {
   User.getByUserName(userName)
   .then(user => {
-    if (user.body && Util.MD5(userPwd) === user.body.userPwd) {
+    if (user.body && userPwd === user.body.userPwd) {
+      user.body.token = createToken(user.body.id)
       done(null, user.body)
     } else {
       done(null, false)
@@ -31,24 +45,22 @@ passport.use(new LocalStrategy(function (userName, userPwd, done) {
   .catch(err => done(err))
 }))
 
-// github登录
-const GitHubStrategy = require('passport-github2').Strategy
-passport.use(new GitHubStrategy({
-  clientID: Config.github.clientID,
-  clientSecret: Config.github.clientSecret,
-  callbackURL: Config.github.callbackURL
-}, async function (accessToken, refreshToken, profile, done) {
-  let user = {
-    userName: profile.username,
-    userPwd: 'default',
-    nickName: profile.displayName,
-    userSex: '男',
-    userEmail: profile._json.email,
-    userBio: profile._json.bio,
-    userAvatar: profile._json.avatar_url,
-    githubId: profile.id
-  }
-  const result = await User.findOrCreate(user, 'github')
-  return done(null, result)
+// JWT登录
+// const { JwtStrategy,ExtractJwt } = require('passport-jwt')
+const JwtStrategy = require('passport-jwt').Strategy
+const ExtractJwt = require('passport-jwt').ExtractJwt
+let jwtOpt = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('JWT'),
+  secretOrKey: 'mockserver',
+  issuer: 'www.xx.com',
+  audience: 'www.xx.com'
 }
-))
+passport.use(new JwtStrategy(jwtOpt, function (jwt_payload, done) {
+  User.getById(jwt_payload.id)
+  .then(user => {
+    if(user) return done(null, user)
+  })
+  .catch(err => done(err))
+}))
+
+module.exports = passport

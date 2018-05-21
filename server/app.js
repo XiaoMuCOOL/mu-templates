@@ -5,15 +5,12 @@ const path = require('path')
 const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
-const bodyparser = require('koa-bodyparser')
+const koaBody = require('koa-better-body')
 const logger = require('koa-logger')
 const koaStatic = require('koa-static')
 const Router = require('koa-router')
-const Config = require('./config/config')
-// 鉴权
-const session = require('koa-session')
-const redisStore = require('koa-redis');
-const passport = require('koa-passport')
+// 跨域
+const cors = require('koa2-cors')
 
 const app = new Koa()
 const router = new Router()
@@ -21,11 +18,10 @@ const router = new Router()
 // error handler
 onerror(app)
 
+app.use(cors())
 // middlewares
-app.use(bodyparser({
-  enableTypes: ['json', 'form', 'text']
-}))
 app.use(json())
+app.use(koaBody({multipart: true}))
 app.use(logger())
 app.use(koaStatic(path.join(__dirname, '/public')))
 
@@ -34,11 +30,8 @@ app.use(views(path.join(__dirname, '/views'), {
 }))
 
 // session & 鉴权
-app.keys = Config.keys
-app.use(session({
-  store: redisStore(Config.redis)
-}, app))
-require('./controllers/auth.js')
+app.keys = 'mockserver'
+const passport = require('./controllers/auth')
 app.use(passport.initialize())
 app.use(passport.session())
 
