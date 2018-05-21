@@ -9,6 +9,11 @@
     "url": "github:xiaomucool/mu-templates#mu-vue-h5",
     "description": "A Vue.js Template Based on Webpack4 and Vux UI.(基于Webpack4和Vux UI的Vue模板)"
   },
+  "mu-mockserver": {
+    "name": "mu-mockserver",
+    "url": "github:xiaomucool/mu-templates#mu-mockserver",
+    "description": "The Mock Server base on koa2(基于Koa2框架的mock服务器)"
+  },
   "mu-koa2": {
     "name": "mu-koa2",
     "url": "github:xiaomucool/mu-templates#mu-koa2",
