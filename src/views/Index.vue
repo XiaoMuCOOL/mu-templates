@@ -44,6 +44,7 @@ export default {
   methods: {
     logout () {
       this.$store.commit('LOGOUT')
+      this.$router.push('Login')
     }
   }
 }
@@ -58,5 +59,8 @@ h1 {
 .value {
   max-width: 265px;
   overflow: hidden;
+}
+button.weui-btn {
+  margin-left: 30px;
 }
 </style>
