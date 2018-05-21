@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <h1>{{ nickName }},{{ msg }}<x-button type="primary" mini @click.native="getUserInfo">获取详细信息</x-button></h1>
+    <h1>{{ nickName }},{{ msg }}<x-button type="primary" mini @click.native="logout">退出</x-button></h1>
     <div style="padding:20px 15px;">
       <x-table>
         <thead>
@@ -22,7 +22,7 @@
 
 <script>
 import { XButton, XTable } from "vux"
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Index',
@@ -42,11 +42,8 @@ export default {
     ])
   },
   methods: {
-    ...mapActions([
-      'userInfo'
-    ]),
-    getUserInfo () {
-      this.userInfo()
+    logout () {
+      this.$store.commit('LOGOUT')
     }
   }
 }
