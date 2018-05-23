@@ -35,6 +35,7 @@
 
 - [mu-wegame][8]  -  A simple template with Wegame(一个简单的微信小游戏模板)
 - [mu-vue-h5][6] - A Vue.js Template Based on Webpack4 and Vux UI.(基于Webpack4和Vux UI的Vue模板)
+- [mu-vue-multi][10] - A Vue.js multi pages Template.(Vue多页面模板)
 - [mu-koa2][7]  -  Backend template based on Nodejs & Koa2(基于Nodejs & Koa2框架的后端模板)
 - [mu-mockserver][9]  -  The Mock Server base on koa2(基于Koa2框架的mock服务器)
 - [mu-simple][1]  -  A simple template with ESlint & Stylelint(最简单的模板，无构建工具，有js和css语法检测)
@@ -59,3 +60,4 @@ All Rights Reserved · Powered by : **小牧COOL**
 [7]:https://github.com/xiaomucool/mu-templates/tree/mu-koa2
 [8]:https://github.com/xiaomucool/mu-templates/tree/mu-wegame
 [9]:https://github.com/xiaomucool/mu-templates/tree/mu-mockserver
+[10]:https://github.com/xiaomucool/mu-templates/tree/mu-vue-multi
