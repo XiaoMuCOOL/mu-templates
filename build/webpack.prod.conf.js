@@ -33,9 +33,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   optimization: {
-    runtimeChunk: {
-      name: 'manifest'
-    },
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
@@ -84,27 +81,28 @@ const webpackConfig = merge(baseWebpackConfig, {
     //   allChunks: true,
     // }),
     new MiniCssExtractPlugin({
-      filename: 'css/app.[name].css',
-      chunkFilename: 'css/app.[contenthash:12].css'  // use contenthash *
+      filename: '[name]/css/app.[name].css',
+      chunkFilename: '[name]/css/app.[contenthash:12].css'  // use contenthash *
     }),
 
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: config.build.index,
-      template: 'index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: config.build.index,
+    //   template: 'index.html',
+    //   inject: true,
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     removeAttributeQuotes: true
+    //     // more options:
+    //     // https://github.com/kangax/html-minifier#options-quick-reference
+    //   },
+    //   // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+    //   chunksSortMode: 'dependency'
+    // }),
+    
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
@@ -119,6 +117,19 @@ const webpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
+// 构建生成多页面的HtmlWebpackPlugin配置，主要是循环生成
+let pages = utils.getMultiEntry('./src/pages/**/*.html')
+for (let pathname in pages) {
+  let conf = {
+    filename: pathname + '/index.html',
+    template: pages[pathname], // 模板路径
+    chunks: ['vendor', pathname], // 每个html引用的js模块
+    inject: true,              // js插入位置
+    hash: true
+  }
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
+}
+
 
 if (config.build.productionGzip) {
   const CompressionWebpackPlugin = require('compression-webpack-plugin')

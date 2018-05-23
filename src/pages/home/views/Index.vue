@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <h1>{{ nickName }},{{ msg }}<x-button type="primary" mini @click.native="logout">退出</x-button></h1>
+    <h1>{{ msg }}<x-button type="primary" mini>退出</x-button></h1>
     <div style="padding:20px 15px;">
       <x-table>
         <thead>
@@ -10,9 +10,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(value, key) in user" :key="key">
-            <td>{{ key }}</td>
-            <td class="value">{{ value }}</td>
+          <tr>
+            <td>姓名</td>
+            <td class="value">小明</td>
           </tr>
         </tbody>
       </x-table>
@@ -33,18 +33,6 @@ export default {
   data () {
     return {
       msg: '欢迎来到Vue'
-    }
-  },
-  computed: {
-    ...mapGetters([
-      'user',
-      'nickName'
-    ])
-  },
-  methods: {
-    logout () {
-      this.$store.commit('LOGOUT')
-      this.$router.push('Login')
     }
   }
 }

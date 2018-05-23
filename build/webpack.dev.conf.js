@@ -50,11 +50,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     // new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     // new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'index.html',
+    //   template: 'index.html',
+    //   inject: true
+    // }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
@@ -65,6 +65,20 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
+let pages =  utils.getMultiEntry('./src/pages/**/*.html')
+let firstPage = ''
+for (var pathname in pages) {
+  // 配置生成的html文件，定义路径等
+  firstPage = pathname
+  var conf = {
+    filename: pathname + '/index.html',
+    template: pages[pathname], // 模板路径
+    chunks: [pathname, 'vendors'], // 每个html引用的js模块
+    inject: true              // js插入位置
+  }
+  // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
+  devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
+}
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
@@ -80,7 +94,7 @@ module.exports = new Promise((resolve, reject) => {
       // Add FriendlyErrorsPlugin
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [`Your application is running here: http://localhost:${port}`],
+          messages: [`Your application is running here: http://localhost:${port}/${firstPage}/`],
           notes: [`${JSON.stringify(config.dev.proxyTable)}`]
         },
         onErrors: config.dev.notifyOnErrors

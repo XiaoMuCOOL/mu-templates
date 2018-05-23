@@ -4,6 +4,8 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const vuxLoader = require('vux-loader')
+// 获得入口js文件
+let entries =  utils.getMultiEntry('./src/pages/**/*.js')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -11,9 +13,7 @@ function resolve (dir) {
 
 let webpackConfig = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
+  entry: entries,
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
