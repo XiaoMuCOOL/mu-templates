@@ -65,7 +65,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
-let pages =  utils.getMultiEntry('./src/pages/**/*.html')
+let pages =  utils.getMultiEntry('./src/**/*.html')
 let firstPage = ''
 for (var pathname in pages) {
   // 配置生成的html文件，定义路径等
@@ -73,7 +73,7 @@ for (var pathname in pages) {
   var conf = {
     filename: pathname + '/index.html',
     template: pages[pathname], // 模板路径
-    chunks: [pathname, 'vendors'], // 每个html引用的js模块
+    chunks: [pathname], // 每个html引用的js模块
     inject: true              // js插入位置
   }
   // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象

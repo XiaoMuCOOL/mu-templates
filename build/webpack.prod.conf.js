@@ -66,7 +66,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         styles: {
           name: 'styles',
           test: /\.(scss|css)$/,
-          chunks: 'all',
+          chunks: 'async',
           minChunks: 1,
           reuseExistingChunk: true,
           enforce: true
@@ -81,8 +81,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     //   allChunks: true,
     // }),
     new MiniCssExtractPlugin({
-      filename: '[name]/css/app.[name].css',
-      chunkFilename: '[name]/css/app.[contenthash:12].css'  // use contenthash *
+      filename: utils.assetsPath('css/[name].css'),
+      chunkFilename: utils.assetsPath('css/[contenthash:12].css')  // use contenthash *
     }),
 
     // generate dist index.html with correct asset hash for caching.
@@ -118,12 +118,12 @@ const webpackConfig = merge(baseWebpackConfig, {
   ]
 })
 // 构建生成多页面的HtmlWebpackPlugin配置，主要是循环生成
-let pages = utils.getMultiEntry('./src/pages/**/*.html')
+let pages = utils.getMultiEntry('./src/**/*.html')
 for (let pathname in pages) {
   let conf = {
     filename: pathname + '/index.html',
     template: pages[pathname], // 模板路径
-    chunks: ['vendor', pathname], // 每个html引用的js模块
+    chunks: [pathname], // 每个html引用的js模块
     inject: true,              // js插入位置
     hash: true
   }

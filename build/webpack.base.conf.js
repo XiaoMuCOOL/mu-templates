@@ -5,7 +5,7 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const vuxLoader = require('vux-loader')
 // 获得入口js文件
-let entries =  utils.getMultiEntry('./src/pages/**/*.js')
+let entries =  utils.getMultiEntry('./src/**/*.js')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
