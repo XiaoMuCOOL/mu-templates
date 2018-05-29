@@ -31,6 +31,22 @@
 
 **官网** ： www.bingblue.com
 
+## 使用方法
+
+**建议配合[`mu-tpl`][11]使用**
+
+```cmd
+// 安装 mu-tpl
+$ npm install -g mu-tpl
+
+// 新建项目
+$ mu init // 然后按照提示选择模板
+
+// 查看模板列表
+$ mu list
+```
+
+
 ## 版本列表
 
 - [mu-wegame][8]  -  A simple template with Wegame(一个简单的微信小游戏模板)
@@ -61,3 +77,4 @@ All Rights Reserved · Powered by : **小牧COOL**
 [8]:https://github.com/xiaomucool/mu-templates/tree/mu-wegame
 [9]:https://github.com/xiaomucool/mu-templates/tree/mu-mockserver
 [10]:https://github.com/xiaomucool/mu-templates/tree/mu-vue-multi
+[11]:https://github.com/xiaomucool/mu-tpl
