@@ -21,6 +21,10 @@ const router = new Router({
   { 
     path: '/', 
     component: Index 
+  },
+  {
+    path: '*',
+    redirect: "/"
   }
 ]})
 
