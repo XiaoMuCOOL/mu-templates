@@ -44,7 +44,7 @@
     $ npm run build
 ```
 
-## Mu-Vue-h5 涉及技术
+## Mu-Vue-Multi 涉及技术
 
 - [Vue][1] - 渐进式框架
 - [vue-router][2] - 路由
