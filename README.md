@@ -13,7 +13,7 @@
   <a href="https://jq.qq.com/?_wv=1027&k=5tyQDAd">
 		<img src="https://img.shields.io/badge/QQ%20Group-215259343-blue.svg">
 	</a>
-  <h1>Mu-Vue-h5</h1>
+  <h1>Mu-Vue-H5</h1>
   <p>
     A Vue.js Template Based on Webpack4 and Vux UI.(基于Webpack4和Vux UI的Vue模板)
   <p>
@@ -44,7 +44,7 @@
     $ npm run build
 ```
 
-## Mu-Vue-h5 涉及技术
+## Mu-Vue-H5 涉及技术
 
 - [Vue][1] - 渐进式框架
 - [vue-router][2] - 路由
@@ -56,7 +56,7 @@
 
 ## License
 
-**Mu-Vue-h5** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
+**Mu-Vue-H5** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
 
 Copyright © 2018 · 滨清科技 , Inc. 
 
