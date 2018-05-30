@@ -13,9 +13,9 @@
   <a href="https://jq.qq.com/?_wv=1027&k=5tyQDAd">
 		<img src="https://img.shields.io/badge/QQ%20Group-215259343-blue.svg">
 	</a>
-  <h1>Mu-mockserver</h1>
+  <h1>Mu-Mockserver</h1>
   <p>
-    The Mock Server base on koa2(基于Koa2框架的mock服务器)
+    The Mock server base on Koa2(基于Koa2框架的Mock服务器)
   <p>
   <br>
   <br>
@@ -41,7 +41,7 @@
     $ npm start
 ```
 
-## Mu-Koa2 涉及技术
+## Mu-Mockserver 涉及技术
 
 - [Koa2][1]           -   下一代 Node.js web 框架 [中文文档][16]
 - [JWT][6]            -   JSON Web Tokens 鉴权
@@ -49,7 +49,7 @@
 
 ## License
 
-**Mu-mockserver** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
+**Mu-Mockserver** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
 
 Copyright © 2018 · 滨清科技 , Inc. 
 
