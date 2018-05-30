@@ -9,21 +9,29 @@ import router from './router'
 import store from './store'
 
 /**
- * Vux 不支持全部导入
+ * 引入Element
  */
-// import Vux from 'vux'
-// Vue.use(Vux)
-//按需引入
-import { Group } from 'vux'
-Vue.component('Group', Group)
+// import ElementUI from 'element-ui'
+// Vue.use(ElementUI)
+// 按需引入
+import { Button, Select, Loading, MessageBox, Notification, Message } from 'element-ui'
+
+Vue.use(Button)
+Vue.use(Select)
+Vue.use(Loading.directive)
+Vue.prototype.$loading = Loading.service
+Vue.prototype.$msgbox = MessageBox
+Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.prompt
+Vue.prototype.$notify = Notification
+Vue.prototype.$message = Message
 
 /**
  * axios
  */
 // import Axios from 'axios'
 // Vue.prototype.axios = Axios
-import { AjaxPlugin } from 'vux'
-Vue.use(AjaxPlugin)
 
 /**
  * 路由发生变化修改页面title

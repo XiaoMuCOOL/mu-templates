@@ -13,9 +13,9 @@
   <a href="https://jq.qq.com/?_wv=1027&k=5tyQDAd">
 		<img src="https://img.shields.io/badge/QQ%20Group-215259343-blue.svg">
 	</a>
-  <h1>Mu-Vue-h5</h1>
+  <h1>Mu-Vue-PC</h1>
   <p>
-    A Vue.js Template Based on Webpack4 and Vux UI.(基于Webpack4和Vux UI的Vue模板)
+    A Vue.js Template Based on Webpack4 and Element UI.(基于Webpack4和Element UI的Vue模板)
   <p>
   <br>
   <br>
@@ -44,19 +44,19 @@
     $ npm run build
 ```
 
-## Mu-Vue-h5 涉及技术
+## Mu-Vue-PC 涉及技术
 
 - [Vue][1] - 渐进式框架
 - [vue-router][2] - 路由
 - [vuex][3] - 状态管理模式
-- [vux][4] - 基于WeUI和Vue(2.x)开发的移动端UI组件库
+- [Element][4] - Element，一套饿了么为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库
 - [webpack][5] - webpack4.6 模块打包工具
 - [yarn][6] - 依赖管理工具
 
 
 ## License
 
-**Mu-Vue-h5** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
+**Mu-Vue-PC** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-templates/blob/master/LICENSE)
 
 Copyright © 2018 · 滨清科技 , Inc. 
 
@@ -66,7 +66,7 @@ All Rights Reserved · Powered by : **小牧COOL**
 [1]:https://cn.vuejs.org/v2/guide/
 [2]:https://router.vuejs.org/zh-cn/
 [3]:https://vuex.vuejs.org/zh-cn/
-[4]:https://doc.vux.li/zh-CN/
+[4]:http://element-cn.eleme.io/#/zh-CN
 [5]:https://webpack.docschina.org/concepts/
 [6]:https://yarnpkg.com/zh-Hans/
 [11]:https://jq.qq.com/?_wv=1027&k=5tyQDAd
