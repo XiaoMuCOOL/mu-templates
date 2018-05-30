@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { XButton, XTable } from "vux"
 import { mapGetters } from 'vuex'
 
 export default {
