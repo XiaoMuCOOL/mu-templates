@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { XInput,GroupTitle,XButton,Box  } from 'vux'
 import API from '../common/api'
 import qs from "qs"
 export default {
