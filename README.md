@@ -46,6 +46,7 @@ $ mu init // 然后按照提示选择模板
 $ mu list
 ```
 
+**详细使用方法请查看[`mu-tpl`][11]**
 
 ## 版本列表
 
@@ -53,7 +54,7 @@ $ mu list
 - [mu-vue-h5][6] - A Vue.js Template Based on Webpack4 and Vux UI.(基于Webpack4和Vux UI的Vue模板)
 - [mu-vue-multi][10] - A Vue.js multi pages Template.(Vue多页面模板)
 - [mu-koa2][7]  -  Backend template based on Nodejs & Koa2(基于Nodejs & Koa2框架的后端模板)
-- [mu-mockserver][9]  -  The Mock Server base on koa2(基于Koa2框架的mock服务器)
+- [mu-mockserver][9]  -  The Mock server base on Koa2(基于Koa2框架的Mock服务器)
 - [mu-simple][1]  -  A simple template with ESlint & Stylelint(最简单的模板，无构建工具，有js和css语法检测)
 - [mu-jquery][2]  -  Multi-page template based on JQuery with webpack(基于webpack和JQuery的前端多页面模板)
 - [mu-gulp][5] - Frontend automation based on JAVA directory structure with gulp(基于gulp和JAVA目录结构的前端自动化)
