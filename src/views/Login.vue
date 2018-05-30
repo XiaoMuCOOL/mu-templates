@@ -54,12 +54,6 @@
 <script>
 export default {
   name: 'Login',
-  components: {
-    XInput,
-    GroupTitle,
-    XButton,
-    Box
-  },
   data () {
     return {
       form: {

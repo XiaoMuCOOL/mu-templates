@@ -1,21 +1,5 @@
 <template>
   <div class="index">
-    <h1>{{ nickName }},{{ msg }}<x-button type="primary" mini @click.native="logout">退出</x-button></h1>
-    <div style="padding:20px 15px;">
-      <x-table>
-        <thead>
-          <tr>
-            <th>关键词</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(value, key) in user" :key="key">
-            <td>{{ key }}</td>
-            <td class="value">{{ value }}</td>
-          </tr>
-        </tbody>
-      </x-table>
     </div>
   </div>
 </template>
@@ -25,10 +9,6 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'Index',
-  components: {
-    XButton,
-    XTable
-  },
   data () {
     return {
       msg: '欢迎来到Vue'

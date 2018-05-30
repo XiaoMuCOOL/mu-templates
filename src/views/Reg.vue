@@ -27,12 +27,6 @@ import API from '../common/api'
 import qs from "qs"
 export default {
   name: 'Reg',
-  components: {
-    XInput,
-    GroupTitle,
-    XButton,
-    Box
-  },
   data () {
     return {
       regInfo: {
