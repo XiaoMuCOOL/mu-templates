@@ -50,6 +50,7 @@
 - [vue-router][2] - 路由
 - [vuex][3] - 状态管理模式
 - [Element][4] - Element，一套饿了么为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库
+- [vue-awesome][7] - fontawesome，字体图标
 - [webpack][5] - webpack4.6 模块打包工具
 - [yarn][6] - 依赖管理工具
 
@@ -69,4 +70,5 @@ All Rights Reserved · Powered by : **小牧COOL**
 [4]:http://element-cn.eleme.io/#/zh-CN
 [5]:https://webpack.docschina.org/concepts/
 [6]:https://yarnpkg.com/zh-Hans/
+[7]:https://fontawesome.com/icons/
 [11]:https://jq.qq.com/?_wv=1027&k=5tyQDAd

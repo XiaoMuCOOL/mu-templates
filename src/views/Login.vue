@@ -1,91 +1,96 @@
 <template>
-  <el-container>
-    <el-header>Header</el-header>
-    <el-main>
-      <img src="../assets/logo.png" alt="Logo" class="logo-img">
-      <el-form ref="form" :model="form" label-width="80px">
-        <el-form-item label="活动名称">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="活动区域">
-          <el-select v-model="form.region" placeholder="请选择活动区域">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="活动时间">
-          <el-col :span="11">
-            <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
-          </el-col>
-          <el-col class="line" :span="2">-</el-col>
-          <el-col :span="11">
-            <el-time-picker type="fixed-time" placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
-          </el-col>
-        </el-form-item>
-        <el-form-item label="即时配送">
-          <el-switch v-model="form.delivery"></el-switch>
-        </el-form-item>
-        <el-form-item label="活动性质">
-          <el-checkbox-group v-model="form.type">
-            <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-            <el-checkbox label="地推活动" name="type"></el-checkbox>
-            <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-            <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
-        <el-form-item label="特殊资源">
-          <el-radio-group v-model="form.resource">
-            <el-radio label="线上品牌商赞助"></el-radio>
-            <el-radio label="线下场地免费"></el-radio>
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="活动形式">
-          <el-input type="textarea" v-model="form.desc"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="onSubmit">立即创建</el-button>
-          <el-button>取消</el-button>
-        </el-form-item>
-      </el-form>
-    </el-main>
-  </el-container>
+  <section>
+    <mu-header></mu-header>
+    <el-container>
+      <el-main class="login">
+        <h1>用户登录</h1>
+        <el-form :model="loginInfo" label-position="top" class="login-form">
+          <el-form-item prop="userPhone">
+            <el-input v-model="loginInfo.userPhone" auto-complete="new-password" placeholder="请输入手机号">
+              <icon slot="prefix" name="mobile-alt"></icon>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="userPwd">
+            <el-input v-model="loginInfo.userPwd" type="password" auto-complete="new-password" placeholder="请输入密码">
+              <icon slot="prefix" name="lock"></icon>
+            </el-input>
+          </el-form-item>
+          <el-form-item class="btn-submit">
+            <el-button type="primary" @click="postLogin">登录</el-button>
+          </el-form-item>
+        </el-form>
+      </el-main>
+    </el-container>
+    <mu-footer></mu-footer>
+  </section>
 </template>
 
 <script>
+import MuHeader from '../components/Header'
+import MuFooter from '../components/Footer'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Login',
+  components: {
+    MuHeader,
+    MuFooter
+  },
   data () {
     return {
-      form: {
-        name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: ''
+      loginInfo: {
+        userPhone: '',
+        userPwd: ''
       }
+    }
+  },
+  computed: {
+    // 使用对象展开运算符将 getter 混入 computed 对象中
+    ...mapGetters([
+      'nickName'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'login'
+    ]),
+    // 登陆
+    postLogin () {
+      let postData = {
+        userName: this.loginInfo.userPhone,
+        userPwd: this.loginInfo.userPwd
+      }
+      this.login(postData).then(() => {
+        this.$router.push({ name: 'Index', params: { nickName: this.nickName }})
+      })
     }
   }
 }
 </script>
 
 <style scoped lang="less">
-  .login {
+.login {
+  h1 {
+    font-size: 24px;
     text-align: center;
-    .logo-img {
-      width: 100px;
-      margin-top: 100px;
-    }
-    .logo-txt {
-      font-size: 1.6rem;
-    }
-    .box {
-      padding: 5%;
+    color: #0099ff;
+    margin-bottom: 80px;
+  }
+  .login-form {
+    margin: 0 auto;
+    width: 100%;
+    min-width: 320px;
+    max-width: 320px;
+    margin-bottom: 200px;
+    .fa-icon {
+      padding-left: 5px;
     }
   }
-  .weui-cells__title {
-    margin-bottom: 20px;
+  .btn-submit {
+    text-align: center;
+    button {
+      width: 100%;
+      margin-top: 30px;
+    }
   }
+}
 </style>

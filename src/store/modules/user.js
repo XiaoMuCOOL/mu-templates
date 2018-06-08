@@ -5,7 +5,7 @@ import API from '../../common/api'
 // 初始化数据
 const state = {
   user: {
-    nickName: 'aaa',
+    nickName: '游客',
     token: ''
   }
 }
@@ -42,7 +42,10 @@ const mutations = {
     state.user = user
   },
   LOGOUT () {
-    state.user = {}
+    state.user = {
+      nickName: '游客',
+      token: ''
+    }
     localStorage.clear()
   }
 }

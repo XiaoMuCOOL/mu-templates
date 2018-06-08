@@ -17,7 +17,9 @@ export default new Router({
       name: 'Index',
       component: Index,
       meta: {
-        title: '首页'
+        title: '首页',
+        // true为不进行权限验证,false或不写默认进行验证
+        auth: false
       }
     },
     {
@@ -26,7 +28,6 @@ export default new Router({
       component: Reg,
       meta: {
         title: '用户注册',
-        // true为不进行权限验证,false或不写默认进行验证
         auth: true
       }
     },

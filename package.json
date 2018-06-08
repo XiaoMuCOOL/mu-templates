@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "element-ui": "^2.4.0",
     "vue": "^2.5.16",
+    "vue-awesome": "^3.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

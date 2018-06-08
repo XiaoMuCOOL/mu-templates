@@ -3,10 +3,19 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// 修复IE Promise未定义错误
+import 'babel-polyfill'
+
 /**
  * 引入vuex
  */
 import store from './store'
+/**
+ * 引入vue-awesome
+ */
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
+Vue.component('icon', Icon)
 
 /**
  * 引入Element
@@ -30,8 +39,8 @@ Vue.use(ElementUI)
 /**
  * axios
  */
-// import Axios from 'axios'
-// Vue.prototype.axios = Axios
+import Axios from 'axios'
+Vue.prototype.$http = Axios
 
 /**
  * 路由发生变化修改页面title
