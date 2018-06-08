@@ -1,3 +1,24 @@
+# Maven #
+target/
+
+# IDEA #
+.idea/
+out/
+*.iml
+
+# Eclipse #
+.settings/
+.metadata/
+.classpath
+.project
+
+.tern-project
+.DS_Store
+.DS_Store?
+src/test/
+
+# FontEnd #
+
 # Logs
 logs
 *.log
@@ -56,5 +77,15 @@ typings/
 
 # dotenv environment variables file
 .env
-dist/**
-.vscode/
+
+# IDE
+.vscode
+.idea
+
+#vue
+dist/
+.cache/
+package-lock.json
+yarn.lock
+*.rar
+*.zip

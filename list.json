@@ -4,15 +4,20 @@
     "url": "github:xiaomucool/mu-templates#mu-wegame",
     "description": "A simple template with Wegame(一个简单的微信小游戏模板)"
   },
-  "mu-vue-multi": {
-    "name": "mu-vue-multi",
-    "url": "github:xiaomucool/mu-templates#mu-vue-multi",
-    "description": "A Vue.js multi pages Template.(Vue多页面模板)"
-  },
   "mu-vue-h5": {
     "name": "mu-vue-h5",
     "url": "github:xiaomucool/mu-templates#mu-vue-h5",
     "description": "A Vue.js Template Based on Webpack4 and Vux UI.(基于Webpack4和Vux UI的Vue模板)"
+  },
+  "mu-vue-pc": {
+    "name": "mu-vue-pc",
+    "url": "github:xiaomucool/mu-templates#mu-vue-pc",
+    "description": "A Vue.js Template Based on Webpack4 and Element UI.(基于Webpack4和Element UI的Vue模板)"
+  },
+  "mu-vue-multi": {
+    "name": "mu-vue-multi",
+    "url": "github:xiaomucool/mu-templates#mu-vue-multi",
+    "description": "A Vue.js multi pages Template.(Vue多页面模板)"
   },
   "mu-mockserver": {
     "name": "mu-mockserver",
