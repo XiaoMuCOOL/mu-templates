@@ -36,7 +36,7 @@ export default {
   name: 'Header',
   data () {
     return {
-      appName: '{{ projectName }}'
+      
     }
   },
   computed: {

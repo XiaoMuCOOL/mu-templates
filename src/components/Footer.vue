@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-footer>
-      <p>Copyright © 2018 · {{ appName }} , Inc. All Rights Reserved</p>
+      <p>Copyright © 2018 · {{ projectName }} , Inc. All Rights Reserved</p>
     </el-footer>
   </el-container>
 </template>
@@ -11,7 +11,7 @@ export default {
   name: 'Footer',
   data () {
     return {
-      appName: 'VUE'
+      
     }
   }
 }
