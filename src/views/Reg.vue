@@ -97,7 +97,10 @@ export default {
   methods: {
     // 注册
     postReg () {
-      alert('注册成功！')
+      this.$refs.regForm.validate((valid) => {
+        if(!valid) return false
+        alert('注册成功！')
+      })
     },
     // 发送短信验证码
     async sendMsg () {
