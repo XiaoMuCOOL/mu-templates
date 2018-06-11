@@ -4,8 +4,7 @@
     <el-container>
       <el-main class="index">
         <h1>{{ nickName }},{{ msg }}</h1>
-        <el-table
-          :data="[user]">
+        <el-table :data="[user]">
           <el-table-column prop="userName" label="用户名"></el-table-column>
           <el-table-column prop="age" label="年龄"></el-table-column>
           <el-table-column prop="nickName" label="昵称"></el-table-column>
