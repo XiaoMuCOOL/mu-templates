@@ -29,8 +29,8 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    filename: utils.assetsPath('[name]/js/[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('[name]/js/[id].[chunkhash].js')
   },
   optimization: {
     minimizer: [
@@ -81,8 +81,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     //   allChunks: true,
     // }),
     new MiniCssExtractPlugin({
-      filename: utils.assetsPath('css/[name].css'),
-      chunkFilename: utils.assetsPath('css/[contenthash:12].css')  // use contenthash *
+      filename: utils.assetsPath('[name]/css/[name].[contenthash].css'),
+      chunkFilename: utils.assetsPath('[name]/css/[contenthash:12].css')  // use contenthash *
     }),
 
     // generate dist index.html with correct asset hash for caching.
@@ -111,7 +111,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
-        to: config.build.assetsSubDirectory,
+        to: './',
         ignore: ['.*']
       }
     ])

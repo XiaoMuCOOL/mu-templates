@@ -5,8 +5,7 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const vuxLoader = require('vux-loader')
 // 获得入口js文件
-let entries =  utils.getMultiEntry('./src/**/*.js')
-
+let entries =  utils.getMultiEntry('./src/*/*.js')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -25,6 +24,7 @@ let webpackConfig = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('src'),
+      'vue': 'vue/dist/vue.js'
     }
   },
   module: {
@@ -44,7 +44,8 @@ let webpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          context: path.resolve(__dirname, '../src/'),
+          name: utils.assetsPath('[path]../img/[name].[hash:7].[ext]')
         }
       },
       {
@@ -52,7 +53,8 @@ let webpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          context: path.resolve(__dirname, '../src/'),
+          name: utils.assetsPath('[path]../media/[name].[hash:7].[ext]')
         }
       },
       {
@@ -60,7 +62,8 @@ let webpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          context: path.resolve(__dirname, '../src/'),
+          name: utils.assetsPath('[path]../fonts/[name].[hash:7].[ext]')
         }
       }
     ]
