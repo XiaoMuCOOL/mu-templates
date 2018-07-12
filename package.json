@@ -4,31 +4,32 @@
   "description": "{{ description }}",
   "author": "{{ author }}",
   "scripts": {
-    "start": "npm run lint && npm run lintcss",
-    "lint": "standard --fix && standard",
-    "lintcss": "stylelint --fix css/**.css"
-  },
-  "devDependencies": {
-    "standard": "^10.0.3",
-    "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^17.0.0"
+    "start": "npm run server",
+    "dev": "gulp dev --gulpfile build/gulpfile.js",
+    "build": "gulp build --gulpfile build/gulpfile.js",
+    "html": "gulp html --gulpfile build/gulpfile.js",
+    "del": "gulp del --gulpfile build/gulpfile.js",
+    "server": "gulp server --gulpfile build/gulpfile.js"
   },
   "standard": {
     "globals": [
       "$",
-      "JQuery"
+      "JQuery",
+      "methods",
+      "utils",
+      "FileReader"
     ],
     "ignore": [
-      "node_modules/**.js"
+      "src/js/jquery-2.1.4.min.js"
     ]
   },
   "stylelint": {
-    "extends": "stylelint-config-standard",
     "ignoreFiles": [
       "css/normalize.css",
       "css/**/**.min.css"
     ],
     "fix": true,
+    "extends": "stylelint-config-standard",
     "rules": {
       "at-rule-no-unknown": [
         true,
@@ -46,9 +47,25 @@
       ],
       "unit-whitelist": [
         "rem",
-        "%"
+        "%",
+        "px",
+        "s"
       ]
     }
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp": "^3.9.1",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.3.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-standard": "^11.0.0",
+    "gulp-stylelint": "^7.0.0",
+    "postcss-cssnext": "^3.1.0",
+    "precss": "^3.1.2",
+    "stylelint": "^9.3.0",
+    "stylelint-config-standard": "^18.2.0"
   },
   "readme": "ERROR: No README data found!"
 }
