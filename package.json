@@ -18,9 +18,6 @@
       "methods",
       "utils",
       "FileReader"
-    ],
-    "ignore": [
-      "src/js/jquery-2.1.4.min.js"
     ]
   },
   "stylelint": {

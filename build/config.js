@@ -4,7 +4,7 @@ module.exports = {
     dest: '../src/css'
   },
   js: {
-    src: ['../src/js/*.js', '!../src/js/jquery-2.1.4.min.js'],
+    src: ['../src/js/*.js', '!../src/js/jquery-3.3.1.min.js'],
     dest: '../src/js'
   },
   html: {
@@ -16,7 +16,7 @@ module.exports = {
     src: '../src/+(js|css)/**/*.**'
   },
   clean: {
-    src: ['../src/css/**/*.css', '!../src/css/reset.css', '!../src/css/style.css']
+    src: ['../src/css/**/*.css', '!../src/css/normalize.css', '!../src/css/style.css']
   },
   server: {
     src: ['../src/+(js|css)/**/*.min.**', '../src/**/*.html']
