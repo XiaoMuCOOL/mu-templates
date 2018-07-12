@@ -1,4 +1,9 @@
 {
+  "mu-simple": {
+    "name": "mu-simple",
+    "url": "github:xiaomucool/mu-templates#mu-simple",
+    "description": "A simple template with ESlint & Stylelint(最简单的模板，无构建工具，有js和css语法检测)"
+  },
   "mu-wegame": {
     "name": "mu-wegame",
     "url": "github:xiaomucool/mu-templates#mu-wegame",
