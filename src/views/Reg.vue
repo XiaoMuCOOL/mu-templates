@@ -46,14 +46,14 @@
 import MuHeader from '../components/Header'
 import MuFooter from '../components/Footer'
 import API from '../common/api'
-import qs from "qs"
+import qs from 'qs'
 export default {
   name: 'Reg',
   components: {
     MuHeader,
     MuFooter
   },
-  created() {
+  created () {
     this.createCode()
   },
   data () {
@@ -90,7 +90,7 @@ export default {
     }
   },
   computed: {
-    secondTxt() {
+    secondTxt () {
       return this.second === 0 ? '发送验证码' : '还剩' + this.second + '秒'
     }
   },
@@ -98,7 +98,7 @@ export default {
     // 注册
     postReg () {
       this.$refs.regForm.validate((valid) => {
-        if(!valid) return false
+        if (!valid) return false
         alert('注册成功！')
       })
     },
@@ -107,51 +107,52 @@ export default {
       let postData = qs.stringify({
         mobile: this.regInfo.userPhone
       })
-      if(this.second !== 0) return false
+      if (this.second !== 0) return false
       let valid = await this.checkAll()
-      if(valid) {
-        this.$http.post(API.sendMsgCode, postData).then((data)=> {
+      if (valid) {
+        this.$http.post(API.sendMsgCode, postData).then((data) => {
           this.countdown(60)
         })
       }
     },
     // 图片验证码
-    createCode() {
-      const codeLength = 4    //验证码的长度   
-      const random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',   
-        'S','T','U','V','W','X','Y','Z')
-      for(let i = 0; i < codeLength; i++) {
-        let index = Math.floor(Math.random()*36)
+    createCode () {
+      this.checkCode = ''
+      const codeLength = 4 // 验证码的长度
+      const random = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+        'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+      for (let i = 0; i < codeLength; i++) {
+        let index = Math.floor(Math.random() * 36)
         this.checkCode += random[index]
       }
     },
     // 验证码验证
-    checkImgCode(rule, val, cb) {
+    checkImgCode (rule, val, cb) {
       // if(!val) return cb(new Error('验证码不能为空'))
-      if(val.toUpperCase() !== this.checkCode) return cb(new Error('请输入正确的验证码'))
+      if (val.toUpperCase() !== this.checkCode) return cb(new Error('请输入正确的验证码'))
       cb()
     },
     // 短信验证
-    checkMsgCode(rule, val, cb) {
+    checkMsgCode (rule, val, cb) {
       let url = API.checkMsgCode + '?mobile=' + this.regInfo.userPhone + '&veriCode=' + this.regInfo.msgCode
-      this.$http.get(url).then(({ data })=> {
-        if(!data) return cb(new Error('请输入正确的短信验证码'))
+      this.$http.get(url).then(({ data }) => {
+        if (!data) return cb(new Error('请输入正确的短信验证码'))
         cb()
       })
     },
     // 全局验证
-    async checkAll() {
+    async checkAll () {
       let $refs = this.$refs
       let result
       try {
-        result = await new Promise(function(resolve, reject) {
+        result = await new Promise(function (resolve, reject) {
           $refs.regForm.validate((valid, fieldObj) => {
             $refs['msgCodeField'].resetField()
             let fieldArr = Object.keys(fieldObj)
             if (valid || (fieldArr.length <= 1)) {
               resolve(true)
             } else {
-              reject(false)
+              reject(new Error(false))
             }
           })
         })
@@ -161,13 +162,13 @@ export default {
       return result
     },
     // 倒计时
-    countdown(max) {
+    countdown (max) {
       this.second = max
-      let time = window.setInterval(()=> {
-        if(this.second <= 0) {
+      let time = window.setInterval(() => {
+        if (this.second <= 0) {
           this.second = 0
           window.clearInterval(time)
-        }else {
+        } else {
           this.second--
         }
       }, 1000)
@@ -176,7 +177,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="stylus">
 .reg {
   h1 {
     font-size: 24px;

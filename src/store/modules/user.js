@@ -1,5 +1,5 @@
 'use strict'
-import Axios from "../../common/axios"
+import Axios from '../../common/axios'
 import API from '../../common/api'
 
 // 初始化数据

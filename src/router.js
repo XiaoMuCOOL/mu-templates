@@ -2,11 +2,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // 全加载
-// import Index from '../views/Index'
+import Index from './views/Index'
 // 懒加载
-const Index = () => import('../views/Index')
-const Reg = () => import('../views/Reg')
-const Login = () => import('../views/Login')
+// const Index = () => import('./views/Index')
+const Reg = () => import('./views/Reg')
+const Login = () => import('./views/Login')
 
 Vue.use(Router)
 
@@ -14,7 +14,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Index',
+      name: 'index',
       component: Index,
       meta: {
         title: '首页',
@@ -24,7 +24,7 @@ export default new Router({
     },
     {
       path: '/reg',
-      name: 'Reg',
+      name: 'reg',
       component: Reg,
       meta: {
         title: '用户注册',
@@ -33,7 +33,7 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'Login',
+      name: 'login',
       component: Login,
       meta: {
         title: '用户登录',
@@ -42,8 +42,8 @@ export default new Router({
     },
     // 404页面 或 重定向到首页
     {
-      path: "*",
-      redirect: "/"
+      path: '*',
+      redirect: '/'
     }
   ]
 })

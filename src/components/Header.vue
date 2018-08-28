@@ -27,7 +27,7 @@
         </ul>
       </nav>
     </el-header>
-  </el-container>  
+  </el-container>
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
   name: 'Header',
   data () {
     return {
-      
+
     }
   },
   computed: {
@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="stylus">
 .el-container {
   display: flex;
   justify-content: center;
@@ -69,7 +69,7 @@ export default {
 }
 header {
   display: flex;
-  width: 60%; 
+  width: 60%;
   min-width: 1000px;
   justify-content: space-between;
 }

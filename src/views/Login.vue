@@ -60,14 +60,19 @@ export default {
         userPwd: this.loginInfo.userPwd
       }
       this.login(postData).then(() => {
-        this.$router.push({ name: 'Index', params: { nickName: this.nickName }})
+        this.$router.push({
+          name: 'index',
+          params: {
+            nickName: this.nickName
+          }
+        })
       })
     }
   }
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="stylus">
 .login {
   h1 {
     font-size: 24px;

@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="stylus">
 .el-container {
   justify-content: center;
 }

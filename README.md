@@ -15,7 +15,7 @@
 	</a>
   <h1>Mu-Vue-PC</h1>
   <p>
-    A Vue.js Template Based on Webpack4 and Element UI.(基于Webpack4和Element UI的Vue模板)
+    A Vue.js Template Based on vue-cli 3.x and Element UI.(基于vue-cli 3.x和Element UI的Vue模板)
   <p>
   <br>
   <br>

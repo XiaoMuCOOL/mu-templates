@@ -90,3 +90,12 @@ package-lock.json
 yarn.lock
 *.rar
 *.zip
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*

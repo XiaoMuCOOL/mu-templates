@@ -12,7 +12,7 @@ Vue.use(Vuex)
 Axios.interceptors.request.use(config => {
   // 为每个http header都加上token
   if (localStorage.token) {
-    config.headers.Authorization = `JWT ${ localStorage.token }`
+    config.headers.Authorization = `JWT ${localStorage.token}`
   }
   return config
 }, err => {
@@ -22,7 +22,7 @@ Axios.interceptors.request.use(config => {
 // 收到response 拦截器
 Axios.interceptors.response.use(response => {
   const data = response.data
-  if(data.code === 200) return data.body
+  if (data.code === 200) return data.body
   console.log('服务器=>', response)
   Message({
     type: 'error',
@@ -48,6 +48,11 @@ Axios.interceptors.response.use(response => {
         })
         break
     }
+  } else {
+    Message({
+      type: 'error',
+      message: '抱歉，网络或服务器不稳定，请重试'
+    })
   }
   return new Promise(() => {})
 })
