@@ -7,11 +7,6 @@ import router from './router'
  * 引入vuex
  */
 import store from './store'
-/**
- * 引入vue-awesome
- */
-import 'vue-awesome/icons'
-import Icon from 'vue-awesome/components/Icon'
 
 /**
  * 引入Element
@@ -35,7 +30,6 @@ import ElementUI from 'element-ui'
  * axios
  */
 import Axios from 'axios'
-Vue.component('icon', Icon)
 Vue.use(ElementUI)
 Vue.prototype.$http = Axios
 
