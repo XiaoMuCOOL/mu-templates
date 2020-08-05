@@ -2,11 +2,7 @@
 import Axios from 'axios'
 import router from '../router'
 import { Message } from 'element-ui'
-
-import Vue from 'vue'
-import Vuex from 'vuex'
 import store from '../store'
-Vue.use(Vuex)
 
 // 发起request 拦截器
 Axios.interceptors.request.use(config => {
